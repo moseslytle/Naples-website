@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+import { clientNeeds, practice } from '../data/practice';
+---
+
+<BaseLayout
+  title="Contact, Hours & Directions"
+  description="Contact details, location, and directions for Naples Modern Choice Medicine in Naples, Florida."
+>
+  <PageHero
+    eyebrow="Contact & location"
+    title="Connect with the office."
+    intro="Call or use the approved patient communication email for general questions and next steps. Online booking is not available on this website."
+  />
+  <section class="section">
+    <div class="container contact-grid">
+      <div class="card">
+        <h2>Office details</h2><ul class="contact-list">
+          <li>
+            <strong>Address</strong><address>
+              {practice.address.street}<br />{practice.address.cityStateZip}
+            </address>
+          </li><li>
+            <strong>Phone</strong><a href={practice.phone.href}
+              >{practice.phone.display}</a
+            >
+          </li><li><strong>Fax</strong>{practice.fax}</li><li>
+            <strong>Patient communication email</strong><a
+              class="email"
+              href={practice.email.href}>{practice.email.display}</a
+            >
+          </li><li>
+            <strong>Office hours</strong><span class="placeholder"
+              >{clientNeeds.hours}</span
+            >
+          </li>
+        </ul><div class="button-row">
+          <a class="button" href={practice.phone.href}>Call the Practice</a><a
+            class="button button--secondary"
+            href={practice.mapUrl}
+            target="_blank"
+            rel="noopener noreferrer">Get Directions</a
+          >
+        </div>
+      </div><ImagePlaceholder
+        label="Practice exterior and entrance photograph"
+        filename="practice-exterior.webp"
+        dimensions="1600 × 1200 px"
+      />
+    </div>
+  </section>
+  <section class="section section--sand">
+    <div class="narrow prose">
+      <h2>Before you contact us</h2><p>
+        Do not use email for emergencies. Call 911 in an emergency.
+      </p><p>
+        Follow office guidance before sending medical or other sensitive
+        personal information. This public website does not provide a secure
+        contact or intake form.
+      </p><p class="placeholder">
+        [CLIENT TO PROVIDE: parking, accessibility, landmark, and arrival
+        instructions]
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.9fr);
+    align-items: stretch;
+    gap: 2rem;
+  }
+  address {
+    font-style: normal;
+  }
+  .email {
+    overflow-wrap: anywhere;
+  }
+  .placeholder {
+    display: block;
+    margin-top: 0.4rem;
+  }
+  @media (max-width: 760px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

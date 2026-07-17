@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { clientNeeds, practice } from '../data/practice';
+
+const faqs = [
+  {
+    q: 'What is Naples Modern Choice Medicine?',
+    a: 'It is a concierge family medicine practice located in Naples, Florida.',
+  },
+  {
+    q: 'What is concierge family medicine?',
+    a: 'It is generally a membership-based primary care model intended to support a closer relationship between patients and their practice. Exact services, access, and fees differ by practice. Naples Modern Choice Medicine’s approved details are still being finalized.',
+  },
+  {
+    q: 'Can I book an appointment online?',
+    a: 'No. This Phase 1 website does not offer online booking. Please contact the office directly.',
+  },
+  {
+    q: 'Can I send medical information through this website?',
+    a: 'No. This website has no intake or contact form and does not collect sensitive patient information. Follow instructions from the office for sharing medical information through an approved channel.',
+  },
+  {
+    q: 'Is this website for medical emergencies?',
+    a: 'No. Call 911 in an emergency. Do not rely on this website or email for urgent or emergency care.',
+  },
+  {
+    q: 'Does the website sell medication?',
+    a: 'No. Medications and pharmaceuticals are not sold through this website.',
+  },
+  { q: 'What are the office hours?', a: clientNeeds.hours },
+  { q: 'What services are offered?', a: clientNeeds.services },
+  { q: 'How much does membership cost?', a: clientNeeds.pricing },
+  { q: 'How do I become a patient?', a: clientNeeds.newPatientProcess },
+];
+---
+
+<BaseLayout
+  title="Frequently Asked Questions"
+  description="Answers to general questions about Naples Modern Choice Medicine, concierge care, contact, and website safety."
+>
+  <PageHero
+    eyebrow="Frequently asked questions"
+    title="Straightforward answers to common questions."
+    intro="Find general information here, then contact the office for questions specific to your situation. Please do not send sensitive medical information through general website channels."
+  />
+  <section class="section">
+    <div class="narrow faq-list">
+      {
+        faqs.map((faq, index) => (
+          <details open={index === 0}>
+            <>
+              <summary>{faq.q}</summary>
+              <div
+                class:list={{
+                  answer: true,
+                  placeholder: faq.a.startsWith('[CLIENT'),
+                }}
+              >
+                <p>{faq.a}</p>
+              </div>
+            </>
+          </details>
+        ))
+      }
+    </div>
+  </section>
+  <section class="section section--mist">
+    <div class="narrow">
+      <h2>Still have a general question?</h2><p>
+        Call the office at <a href={practice.phone.href}
+          >{practice.phone.display}</a
+        >. For an emergency, call 911.
+      </p><div class="button-row">
+        <a class="button" href="/contact/">Contact the Office</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .faq-list {
+    border-top: 1px solid var(--border);
+  }
+  details {
+    border-bottom: 1px solid var(--border);
+  }
+  summary {
+    padding: 1.4rem 2.5rem 1.4rem 0;
+    cursor: pointer;
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+  .answer {
+    padding: 0 2rem 1rem 0;
+    color: var(--ink-soft);
+  }
+  .answer.placeholder {
+    margin-bottom: 1.2rem;
+    padding: 1rem 1.15rem;
+    color: #60382d;
+  }
+</style>

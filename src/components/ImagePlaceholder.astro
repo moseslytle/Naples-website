@@ -1,0 +1,76 @@
+---
+interface Props {
+  label: string;
+  filename: string;
+  dimensions: string;
+  portrait?: boolean;
+}
+
+const { label, filename, dimensions, portrait = false } = Astro.props;
+---
+
+<div
+  class:list={['image-slot', { 'image-slot--portrait': portrait }]}
+  role="img"
+  aria-label={`${label} placeholder`}
+>
+  <svg viewBox="0 0 80 80" aria-hidden="true">
+    <path d="M17 58 33 38l11 12 8-9 13 17H17Z" fill="currentColor" opacity=".35"
+    ></path>
+    <circle cx="53" cy="27" r="7" fill="currentColor" opacity=".5"></circle>
+  </svg>
+  <strong>{label}</strong>
+  <span>{filename}</span>
+  <small>Recommended: {dimensions}, WebP or AVIF</small>
+</div>
+
+<style>
+  .image-slot {
+    display: grid;
+    min-height: 22rem;
+    place-content: center;
+    padding: 2rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background:
+      linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.7),
+        rgba(232, 241, 238, 0.8)
+      ),
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(36, 91, 85, 0.04) 10px,
+        rgba(36, 91, 85, 0.04) 20px
+      );
+    color: var(--pine);
+    text-align: center;
+  }
+
+  .image-slot--portrait {
+    min-height: 30rem;
+  }
+
+  svg {
+    width: 4rem;
+    margin: 0 auto 1rem;
+  }
+
+  strong,
+  span,
+  small {
+    display: block;
+  }
+
+  span {
+    margin-top: 0.4rem;
+    font-family: ui-monospace, monospace;
+    font-size: 0.85rem;
+  }
+
+  small {
+    color: var(--ink-soft);
+  }
+</style>

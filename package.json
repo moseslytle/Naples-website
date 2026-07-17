@@ -1,0 +1,25 @@
+{
+  "name": "naples-modern-choice-medicine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "lint": "astro check",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "node scripts/audit-site.mjs"
+  },
+  "dependencies": {
+    "astro": "^7.0.9"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.6",
+    "prettier": "^3.6.2",
+    "prettier-plugin-astro": "^0.14.1",
+    "typescript": "^5.9.2"
+  }
+}

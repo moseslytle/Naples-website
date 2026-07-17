@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { clientNeeds, practice } from '../data/practice';
+---
+
+<BaseLayout
+  title="Services"
+  description="Explore service information for Naples Modern Choice Medicine. Final clinical service details are pending client approval."
+>
+  <PageHero
+    eyebrow="Services"
+    title="Family medicine services, explained with clarity."
+    intro="Naples Modern Choice Medicine is a concierge family medicine practice. Exact clinical offerings and any exclusions will appear here only after the practice reviews and approves them."
+    ><div class="button-row">
+      <a class="button" href={practice.phone.href}>Ask the Office</a>
+    </div></PageHero
+  >
+  <section class="section">
+    <div class="container">
+      <div class="grid grid--3">
+        <article class="card">
+          <h2>Approved service list</h2><p class="placeholder">
+            {clientNeeds.services}
+          </p>
+        </article><article class="card">
+          <h2>What membership includes</h2><p class="placeholder">
+            {clientNeeds.pricing}
+          </p>
+        </article><article class="card">
+          <h2>Care availability</h2><p class="placeholder">
+            {clientNeeds.responseTime}
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="section section--sand">
+    <div class="narrow prose">
+      <p class="eyebrow">Before publication</p><h2>
+        Details we will confirm with the practice
+      </h2><ul class="check-list">
+        <li>Which family medicine services are offered</li><li>
+          Which age groups the practice serves
+        </li><li>Any services not included in membership</li><li>
+          How outside testing, specialists, and hospital care are handled
+        </li><li>Any insurance or billing language approved for the website</li>
+      </ul><p class="placeholder">
+        [CLIENT TO PROVIDE: reviewed service, eligibility, insurance, and
+        exclusion language]
+      </p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="narrow prose">
+      <h2>Important service information</h2><p>
+        This website provides general information only. It does not establish a
+        patient-provider relationship, replace individualized medical advice, or
+        provide diagnosis or treatment.
+      </p><p>
+        No medication or pharmaceutical products are sold through this website.
+        For service and scheduling questions, contact the office directly.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

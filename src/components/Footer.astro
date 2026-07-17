@@ -1,0 +1,157 @@
+---
+import LogoMark from './LogoMark.astro';
+import { navigation, practice } from '../data/practice';
+---
+
+<aside class="safety" aria-label="Important medical notice">
+  <div class="container safety__inner">
+    <strong>Need urgent help?</strong>
+    <span
+      >This website is not for medical emergencies. Call 911 in an emergency.</span
+    >
+  </div>
+</aside>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <div class="brand-line"><LogoMark /><strong>{practice.name}</strong></div>
+      <p>A concierge family medicine practice serving Naples, Florida.</p>
+      <p class="draft-note">
+        Website and medical/legal copy are drafts pending final client review.
+      </p>
+    </div>
+    <div>
+      <h2>Explore</h2>
+      <ul>
+        {
+          navigation.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))
+        }
+        <li><a href="/privacy-disclaimer/">Privacy &amp; Disclaimer</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Contact</h2>
+      <address>
+        {practice.address.street}<br />
+        {practice.address.cityStateZip}
+      </address>
+      <p>
+        <a href={practice.phone.href}>{practice.phone.display}</a><br />
+        <a href={practice.email.href}>{practice.email.display}</a>
+      </p>
+    </div>
+  </div>
+  <div class="container legal-row">
+    <span>&copy; {new Date().getFullYear()} {practice.name}</span>
+    <span
+      >Medications and pharmaceuticals are not sold through this website.</span
+    >
+  </div>
+</footer>
+
+<style>
+  .safety {
+    padding-block: 1rem;
+    background: #f7ded5;
+    color: #573127;
+  }
+
+  .safety__inner {
+    display: flex;
+    gap: 0.75rem 1.5rem;
+    align-items: baseline;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .site-footer {
+    padding-top: 4rem;
+    background: var(--pine-dark);
+    color: #e9f2ef;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 0.65fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .footer-brand p {
+    max-width: 30rem;
+  }
+
+  .brand-line {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+  }
+
+  h2 {
+    color: var(--white);
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li + li {
+    margin-top: 0.35rem;
+  }
+
+  a {
+    color: #e9f2ef;
+  }
+
+  address {
+    margin-bottom: 1rem;
+    font-style: normal;
+  }
+
+  .draft-note {
+    color: #bbd0cb;
+    font-size: 0.82rem;
+  }
+
+  .legal-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    color: #bbd0cb;
+    font-size: 0.76rem;
+  }
+
+  @media (max-width: 760px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .legal-row,
+    .safety__inner {
+      display: block;
+    }
+
+    .legal-row span {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+  }
+</style>

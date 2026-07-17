@@ -1,0 +1,48 @@
+export const practice = {
+  name: 'Naples Modern Choice Medicine',
+  shortName: 'Naples Modern Choice Medicine',
+  description:
+    'A concierge family medicine practice in Naples, Florida, focused on a personal and clear approach to care.',
+  address: {
+    street: '870 111th Avenue North, Suite 3',
+    cityStateZip: 'Naples, FL 34108',
+    full: '870 111th Avenue North, Suite 3, Naples, FL 34108',
+  },
+  phone: {
+    display: '(239) 499-4765',
+    href: 'tel:+12394994765',
+  },
+  fax: '(239) 317-1831',
+  email: {
+    display: 'info@naplesmcm.sprucecare.com',
+    href: 'mailto:info@naplesmcm.sprucecare.com',
+  },
+  mapUrl:
+    'https://www.google.com/maps/search/?api=1&query=870+111th+Avenue+North+Suite+3+Naples+FL+34108',
+  domain: 'naplesmodernchoicemedicine.com',
+} as const;
+
+export const navigation = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about/' },
+  { label: 'Services', href: '/services/' },
+  { label: 'Concierge Care', href: '/concierge-care/' },
+  { label: 'New Patients', href: '/new-patients/' },
+  { label: 'FAQ', href: '/faq/' },
+  { label: 'Contact', href: '/contact/' },
+] as const;
+
+export const clientNeeds = {
+  providerName:
+    '[CLIENT TO PROVIDE: provider name and preferred professional title]',
+  providerBio: '[CLIENT TO PROVIDE: approved provider biography]',
+  providerCredentials: '[CLIENT TO PROVIDE: verified provider credentials]',
+  services: '[CLIENT TO PROVIDE: approved list and descriptions of services]',
+  hours: '[CLIENT TO PROVIDE: office hours and holiday policy]',
+  newPatientProcess:
+    '[CLIENT TO PROVIDE: confirmed new-patient process and eligibility details]',
+  pricing:
+    '[CLIENT TO PROVIDE: approved membership pricing and what is included]',
+  responseTime:
+    '[CLIENT TO PROVIDE: approved communication expectations and response times]',
+} as const;

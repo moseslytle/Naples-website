@@ -1,0 +1,244 @@
+---
+import LogoMark from './LogoMark.astro';
+import { navigation, practice } from '../data/practice';
+
+const { pathname } = Astro.url;
+const isActive = (href: string) =>
+  href === '/' ? pathname === '/' : pathname.startsWith(href);
+---
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <div class="utility">
+    <div class="container utility__inner">
+      <span>Concierge family medicine in Naples, Florida</span>
+      <a href={practice.phone.href}>Call {practice.phone.display}</a>
+    </div>
+  </div>
+  <div class="container nav-wrap">
+    <a class="brand" href="/" aria-label={`${practice.name} home`}>
+      <LogoMark />
+      <span>
+        <strong>Naples Modern</strong>
+        <small>Choice Medicine</small>
+      </span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <ul>
+        {
+          navigation.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                aria-current={isActive(item.href) ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <details class="mobile-nav">
+      <summary>Menu</summary>
+      <nav aria-label="Mobile navigation">
+        <ul>
+          {
+            navigation.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  aria-current={isActive(item.href) ? 'page' : undefined}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<style>
+  .skip-link {
+    position: fixed;
+    z-index: 100;
+    top: 0.5rem;
+    left: 0.5rem;
+    padding: 0.7rem 1rem;
+    border-radius: 0.4rem;
+    background: var(--white);
+    transform: translateY(-150%);
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+
+  .site-header {
+    position: relative;
+    z-index: 20;
+    border-bottom: 1px solid var(--border);
+    background: rgba(251, 249, 244, 0.96);
+  }
+
+  .utility {
+    background: var(--pine-dark);
+    color: var(--white);
+    font-size: 0.78rem;
+  }
+
+  .utility__inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 0.4rem;
+  }
+
+  .utility a {
+    color: var(--white);
+    font-weight: 750;
+  }
+
+  .nav-wrap {
+    display: flex;
+    min-height: 5.5rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    color: var(--ink);
+    line-height: 1.05;
+    text-decoration: none;
+  }
+
+  .brand strong,
+  .brand small {
+    display: block;
+  }
+
+  .brand strong {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .brand small {
+    margin-top: 0.25rem;
+    color: var(--pine);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .desktop-nav ul,
+  .mobile-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .desktop-nav a {
+    display: block;
+    padding: 0.65rem 0.55rem;
+    border-radius: 0.4rem;
+    color: var(--ink);
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .desktop-nav a:hover,
+  .desktop-nav a[aria-current='page'] {
+    background: var(--mist);
+    color: var(--pine-dark);
+  }
+
+  .mobile-nav {
+    display: none;
+    position: relative;
+  }
+
+  .mobile-nav summary {
+    padding: 0.6rem 0.85rem;
+    border: 2px solid var(--pine);
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 750;
+    list-style: none;
+  }
+
+  .mobile-nav summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-nav nav {
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    right: 0;
+    width: min(19rem, calc(100vw - 2rem));
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--white);
+    box-shadow: var(--shadow);
+  }
+
+  .mobile-nav ul {
+    display: block;
+  }
+
+  .mobile-nav a {
+    display: block;
+    padding: 0.65rem 0.75rem;
+    border-radius: 0.4rem;
+    color: var(--ink);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .mobile-nav a[aria-current='page'] {
+    background: var(--mist);
+  }
+
+  @media (max-width: 1040px) {
+    .desktop-nav {
+      display: none;
+    }
+
+    .mobile-nav {
+      display: block;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .utility__inner span {
+      display: none;
+    }
+
+    .utility__inner {
+      justify-content: center;
+    }
+
+    .brand strong {
+      font-size: 0.96rem;
+    }
+
+    .brand small {
+      font-size: 0.63rem;
+    }
+  }
+</style>

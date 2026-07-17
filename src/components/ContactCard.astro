@@ -1,0 +1,56 @@
+---
+import { clientNeeds, practice } from '../data/practice';
+---
+
+<div class="contact-card">
+  <p class="eyebrow">Contact the office</p>
+  <h2>We’re here to help with general questions.</h2>
+  <ul class="contact-list">
+    <li>
+      <strong>Phone</strong><a href={practice.phone.href}
+        >{practice.phone.display}</a
+      >
+    </li>
+    <li>
+      <strong>Patient communication email</strong><a href={practice.email.href}
+        >{practice.email.display}</a
+      >
+    </li>
+    <li>
+      <strong>Office</strong>{practice.address.street}<br />{
+        practice.address.cityStateZip
+      }
+    </li>
+    <li>
+      <strong>Hours</strong><span class="placeholder">{clientNeeds.hours}</span>
+    </li>
+  </ul>
+  <p class="caution">
+    Do not use email for emergencies. Call 911 in an emergency.
+  </p>
+</div>
+
+<style>
+  .contact-card {
+    padding: clamp(1.5rem, 4vw, 3rem);
+    border-radius: var(--radius-lg);
+    background: var(--white);
+    box-shadow: var(--shadow);
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+  }
+
+  .placeholder {
+    display: block;
+    margin-top: 0.4rem;
+  }
+
+  .caution {
+    margin: 1.5rem 0 0;
+    color: #60382d;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+</style>

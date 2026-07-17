@@ -1,0 +1,318 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+import ContactCard from '../components/ContactCard.astro';
+import { clientNeeds, practice } from '../data/practice';
+---
+
+<BaseLayout
+  title={practice.name}
+  description="A welcoming introduction to Naples Modern Choice Medicine, a concierge family medicine practice in Naples, Florida."
+>
+  <section class="hero">
+    <div class="container hero__grid">
+      <div>
+        <p class="eyebrow">Concierge family medicine · Naples, Florida</p>
+        <h1>Care built around time, clarity, and a personal connection.</h1>
+        <p class="lede">
+          Naples Modern Choice Medicine is a concierge family medicine practice
+          offering a more direct and personal approach to your ongoing care.
+        </p>
+        <div class="button-row">
+          <a class="button" href={practice.phone.href}>Call the Practice</a>
+          <a class="button button--secondary" href="/concierge-care/"
+            >Learn About Concierge Care</a
+          >
+        </div>
+        <p class="hero__note">
+          Appointments are arranged by contacting the office. Online booking is
+          not available.
+        </p>
+      </div>
+      <ImagePlaceholder
+        label="Practice exterior or welcoming office photo"
+        filename="practice-hero.webp"
+        dimensions="1600 × 1200 px"
+      />
+    </div>
+  </section>
+
+  <section class="section intro">
+    <div class="narrow">
+      <p class="eyebrow">A thoughtful approach to primary care</p>
+      <h2>What concierge family medicine means</h2>
+      <p class="lede">
+        Concierge care is a membership-based approach designed to support a
+        closer, more continuous relationship between a patient and their primary
+        care practice. Specific access, services, and membership details vary by
+        practice.
+      </p>
+      <p>
+        We’ll make the details for Naples Modern Choice Medicine clear before
+        launch, so prospective patients can understand what the model includes
+        and decide whether it may suit their needs.
+      </p>
+      <div class="button-row">
+        <a class="button button--secondary" href="/concierge-care/"
+          >How Concierge Care Works</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--mist">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Services</p>
+          <h2>Family medicine, clearly explained</h2>
+        </div>
+        <p>
+          Exact services will be published after the practice approves the final
+          scope and descriptions.
+        </p>
+      </div>
+      <div class="grid grid--3">
+        <article class="card">
+          <span class="card__number">01</span><h3>Care services</h3><p
+            class="placeholder"
+          >
+            {clientNeeds.services}
+          </p>
+        </article>
+        <article class="card">
+          <span class="card__number">02</span><h3>Membership inclusions</h3><p
+            class="placeholder"
+          >
+            {clientNeeds.pricing}
+          </p>
+        </article>
+        <article class="card">
+          <span class="card__number">03</span><h3>
+            Communication and access
+          </h3><p class="placeholder">{clientNeeds.responseTime}</p>
+        </article>
+      </div>
+      <div class="button-row">
+        <a class="button" href="/services/">Explore Our Services</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <ImagePlaceholder
+        label="Approved provider portrait"
+        filename="provider-portrait.webp"
+        dimensions="1200 × 1500 px"
+        portrait
+      />
+      <div>
+        <p class="eyebrow">Meet your provider</p>
+        <h2>A practice centered on a lasting care relationship.</h2>
+        <p>
+          We look forward to introducing the provider behind Naples Modern
+          Choice Medicine with an approved biography and verified credentials.
+        </p>
+        <p class="placeholder">{clientNeeds.providerName}</p>
+        <p class="placeholder">{clientNeeds.providerBio}</p>
+        <div class="button-row">
+          <a class="button button--secondary" href="/about/"
+            >About the Practice</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sand">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Getting started</p><h2>
+            A clear path for new patients
+          </h2>
+        </div>
+        <p>
+          There is no online intake or medical-information form on this website.
+          Start by contacting the office through an approved channel.
+        </p>
+      </div>
+      <ol class="steps grid grid--3">
+        <li class="card">
+          <strong>1</strong><h3>Learn about the practice</h3><p>
+            Review the concierge model, approved services, and frequently asked
+            questions.
+          </p>
+        </li>
+        <li class="card">
+          <strong>2</strong><h3>Contact the office</h3><p>
+            Call or use the practice’s patient communication email for general
+            next-step information.
+          </p>
+        </li>
+        <li class="card">
+          <strong>3</strong><h3>Follow the confirmed process</h3><p
+            class="placeholder"
+          >
+            {clientNeeds.newPatientProcess}
+          </p>
+        </li>
+      </ol>
+      <div class="button-row">
+        <a class="button" href="/new-patients/">New Patient Information</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split contact-split">
+      <div>
+        <p class="eyebrow">Naples office</p>
+        <h2>Care close to home.</h2>
+        <p class="lede">Visit Naples Modern Choice Medicine in North Naples.</p>
+        <address>
+          {practice.address.street}<br />{practice.address.cityStateZip}
+        </address>
+        <a href={practice.mapUrl} target="_blank" rel="noopener noreferrer"
+          >Open directions in Google Maps <span class="sr-only"
+            >(opens in a new tab)</span
+          ></a
+        >
+      </div>
+      <ContactCard />
+    </div>
+  </section>
+
+  <section class="section section--mist">
+    <div class="narrow">
+      <p class="eyebrow">A few common questions</p>
+      <h2>Helpful answers before you call</h2>
+      <div class="faq-preview">
+        <details>
+          <summary>Can I book an appointment on this website?</summary><p>
+            No. Please contact the office directly for scheduling and next
+            steps.
+          </p>
+        </details>
+        <details>
+          <summary>Can I purchase medication through this website?</summary><p>
+            No. Medications and pharmaceuticals are not sold through this
+            website.
+          </p>
+        </details>
+        <details>
+          <summary>What should I do in an emergency?</summary><p>
+            Do not use this website or email for an emergency. Call 911.
+          </p>
+        </details>
+      </div>
+      <div class="button-row">
+        <a class="button button--secondary" href="/faq/">View All FAQs</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-block: clamp(3rem, 8vw, 7rem);
+    background:
+      radial-gradient(
+        circle at 80% 15%,
+        rgba(135, 170, 163, 0.28),
+        transparent 35%
+      ),
+      linear-gradient(135deg, var(--cream), #f3f7f4);
+  }
+  .hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(20rem, 0.9fr);
+    align-items: center;
+    gap: clamp(2rem, 7vw, 6rem);
+  }
+  .hero__note {
+    margin-top: 1.1rem;
+    color: var(--ink-soft);
+    font-size: 0.84rem;
+  }
+  .intro {
+    text-align: center;
+  }
+  .intro .lede {
+    margin-inline: auto;
+  }
+  .intro .button-row {
+    justify-content: center;
+  }
+  .section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  .section-heading > p {
+    max-width: 32rem;
+    color: var(--ink-soft);
+  }
+  .card__number {
+    display: block;
+    margin-bottom: 1.3rem;
+    color: var(--sea);
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+  }
+  .steps {
+    padding: 0;
+    list-style: none;
+    counter-reset: step;
+  }
+  .steps strong {
+    display: grid;
+    width: 2.5rem;
+    height: 2.5rem;
+    place-items: center;
+    margin-bottom: 1.2rem;
+    border-radius: 50%;
+    background: var(--pine);
+    color: var(--white);
+  }
+  address {
+    margin-bottom: 1rem;
+    font-style: normal;
+    font-size: 1.1rem;
+  }
+  .faq-preview {
+    border-top: 1px solid var(--border);
+  }
+  details {
+    border-bottom: 1px solid var(--border);
+  }
+  summary {
+    padding-block: 1.2rem;
+    cursor: pointer;
+    font-weight: 750;
+  }
+  details p {
+    padding-right: 2rem;
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  @media (max-width: 760px) {
+    .hero__grid {
+      grid-template-columns: 1fr;
+    }
+    .section-heading {
+      display: block;
+    }
+  }
+</style>

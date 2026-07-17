@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import ContactCard from '../components/ContactCard.astro';
+import { clientNeeds, practice } from '../data/practice';
+---
+
+<BaseLayout
+  title="New Patients"
+  description="General next-step information for prospective patients of Naples Modern Choice Medicine."
+>
+  <PageHero
+    eyebrow="New patients"
+    title="Start with a conversation with our office."
+    intro="This website does not collect medical details or offer online booking. Contact the office to ask general questions and learn the approved next steps."
+    ><div class="button-row">
+      <a class="button" href={practice.phone.href}>Call the Practice</a><a
+        class="button button--secondary"
+        href={practice.email.href}>Email the Office</a
+      >
+    </div></PageHero
+  >
+  <section class="section">
+    <div class="container split">
+      <div class="prose">
+        <h2>What to expect</h2><ol>
+          <li>
+            <strong>Review the practice information.</strong> Learn about the concierge
+            model, services once approved, and common questions.
+          </li><li>
+            <strong>Contact the office.</strong> Ask about availability, membership,
+            and the process for getting started.
+          </li><li>
+            <strong>Follow the office’s instructions.</strong> Any necessary patient
+            paperwork or medical information will be handled through practice-approved
+            channels, not this public website.
+          </li>
+        </ol><p class="placeholder">{clientNeeds.newPatientProcess}</p>
+      </div><ContactCard />
+    </div>
+  </section>
+  <section class="section section--sand">
+    <div class="narrow prose">
+      <h2>Protecting your information</h2><p>
+        Do not send symptoms, diagnoses, medical history, medications, insurance
+        information, Social Security numbers, or other sensitive details through
+        a general website inquiry.
+      </p><p>
+        The listed email is the practice’s approved patient communication
+        address. The practice should provide final guidance about what
+        information may be sent through it.
+      </p><p class="placeholder">
+        [CLIENT TO PROVIDE: approved patient communication and privacy
+        instructions]
+      </p>
+    </div>
+  </section>
+</BaseLayout>

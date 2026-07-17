@@ -3,6 +3,11 @@ export const practice = {
   shortName: 'Naples Modern Choice Medicine',
   description:
     'A concierge family medicine practice in Naples, Florida, focused on a personal and clear approach to care.',
+  provider: {
+    name: 'Sandy P. Naples, D.O., F.A.A.F.P.',
+    title: 'Board-Certified Family Physician',
+    experience: 'More than 30 years in family medicine',
+  },
   address: {
     street: '870 111th Avenue North, Suite 3',
     cityStateZip: 'Naples, FL 34108',
@@ -33,10 +38,7 @@ export const navigation = [
 ] as const;
 
 export const clientNeeds = {
-  providerName:
-    '[CLIENT TO PROVIDE: provider name and preferred professional title]',
   providerBio: '[CLIENT TO PROVIDE: approved provider biography]',
-  providerCredentials: '[CLIENT TO PROVIDE: verified provider credentials]',
   services: '[CLIENT TO PROVIDE: approved list and descriptions of services]',
   hours: '[CLIENT TO PROVIDE: office hours and holiday policy]',
   newPatientProcess:

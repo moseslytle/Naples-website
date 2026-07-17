@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import ImagePlaceholder from '../components/ImagePlaceholder.astro';
-import { clientNeeds } from '../data/practice';
+import { clientNeeds, practice } from '../data/practice';
 ---
 
 <BaseLayout
@@ -43,15 +43,14 @@ import { clientNeeds } from '../data/practice';
         dimensions="1200 × 1500 px"
         portrait
       /><div>
-        <p class="eyebrow">Your provider</p><h2>
-          {clientNeeds.providerName}
-        </h2><p class="placeholder">{clientNeeds.providerCredentials}</p><p
-          class="placeholder"
-        >
+        <p class="eyebrow">Your provider</p><h2>{practice.provider.name}</h2><p>
+          <strong>{practice.provider.title}</strong><br />
+          {practice.provider.experience}
+        </p><p class="placeholder">
           {clientNeeds.providerBio}
         </p><p>
-          All provider education, board certification, affiliations, experience,
-          and professional claims must be verified before publication.
+          Any additional education, affiliations, or professional claims must be
+          verified before publication.
         </p>
       </div>
     </div>

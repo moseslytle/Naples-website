@@ -59,7 +59,7 @@ Replace the corresponding `ImagePlaceholder` component with an Astro image compo
 
 Do not launch until the client has reviewed and supplied:
 
-- Provider name, title, credentials, biography, and portrait
+- Approved provider biography, education details, affiliations, and portrait
 - Practice history, philosophy, and approved values
 - Exact services, age eligibility, exclusions, and coordination language
 - Membership pricing, inclusions, terms, and cancellation details

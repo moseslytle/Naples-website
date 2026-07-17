@@ -111,10 +111,13 @@ import { clientNeeds, practice } from '../data/practice';
         <p class="eyebrow">Meet your provider</p>
         <h2>A practice centered on a lasting care relationship.</h2>
         <p>
-          We look forward to introducing the provider behind Naples Modern
-          Choice Medicine with an approved biography and verified credentials.
+          Sandy P. Naples, D.O., F.A.A.F.P., is a board-certified family
+          physician with more than 30 years of experience in family medicine.
         </p>
-        <p class="placeholder">{clientNeeds.providerName}</p>
+        <h3>{practice.provider.name}</h3>
+        <p class="provider-detail">
+          {practice.provider.title}<br />{practice.provider.experience}
+        </p>
         <p class="placeholder">{clientNeeds.providerBio}</p>
         <div class="button-row">
           <a class="button button--secondary" href="/about/"
@@ -262,6 +265,10 @@ import { clientNeeds, practice } from '../data/practice';
     color: var(--sea);
     font-family: var(--font-serif);
     font-size: 2.5rem;
+  }
+  .provider-detail {
+    color: var(--pine);
+    font-weight: 750;
   }
   .steps {
     padding: 0;

@@ -1,10 +1,11 @@
 ---
 import LogoMark from './LogoMark.astro';
-import { navigation, practice } from '../data/practice';
+import { navigation, practice, sitePath } from '../data/practice';
 
 const { pathname } = Astro.url;
+const homePath = sitePath('/');
 const isActive = (href: string) =>
-  href === '/' ? pathname === '/' : pathname.startsWith(href);
+  href === homePath ? pathname === homePath : pathname.startsWith(href);
 ---
 
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -16,7 +17,7 @@ const isActive = (href: string) =>
     </div>
   </div>
   <div class="container nav-wrap">
-    <a class="brand" href="/" aria-label={`${practice.name} home`}>
+    <a class="brand" href={sitePath('/')} aria-label={`${practice.name} home`}>
       <LogoMark />
       <strong class="brand__name">
         <span>Naples Modern</span>

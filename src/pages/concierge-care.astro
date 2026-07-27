@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import PracticeImage from '../components/PracticeImage.astro';
-import { practice } from '../data/practice';
+import { practice, sitePath } from '../data/practice';
 ---
 
 <BaseLayout
@@ -14,9 +14,10 @@ import { practice } from '../data/practice';
     title="Understanding concierge family medicine."
     intro="Concierge family medicine uses a membership model to support more personalized, ongoing primary care. Membership details, access, and included services vary by practice."
     ><div class="button-row">
-      <a class="button" href="/new-patients/">New Patient Information</a><a
-        class="button button--secondary"
-        href={practice.phone.href}>Call the Practice</a
+      <a class="button" href={sitePath('/new-patients/')}
+        >New Patient Information</a
+      ><a class="button button--secondary" href={practice.phone.href}
+        >Call the Practice</a
       >
     </div></PageHero
   >

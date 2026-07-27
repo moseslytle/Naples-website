@@ -18,6 +18,7 @@ walk('dist');
 
 const htmlFiles = files.filter((file) => file.endsWith('.html'));
 const errors = [];
+const basePath = '/Naples-website';
 const stripTags = (value) =>
   value
     .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, '')
@@ -27,8 +28,10 @@ const stripTags = (value) =>
     .replace(/\s+/g, ' ')
     .trim();
 const routeExists = (href) => {
-  const clean = href.split(/[?#]/)[0];
+  let clean = href.split(/[?#]/)[0];
   if (!clean.startsWith('/')) return true;
+  if (clean === basePath || clean.startsWith(`${basePath}/`))
+    clean = clean.slice(basePath.length) || '/';
   if (clean === '/') return existsSync(join('dist', 'index.html'));
   const target = clean.endsWith('/')
     ? join('dist', clean, 'index.html')

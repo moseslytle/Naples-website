@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-import { practice } from '../data/practice';
+import { practice, sitePath } from '../data/practice';
 
 const faqs = [
   {
@@ -59,7 +59,7 @@ const faqs = [
           >{practice.phone.display}</a
         >.
       </p><div class="button-row">
-        <a class="button" href="/contact/">Contact the Office</a>
+        <a class="button" href={sitePath('/contact/')}>Contact the Office</a>
       </div>
     </div>
   </section>

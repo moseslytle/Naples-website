@@ -27,12 +27,17 @@ export const practice = {
   domain: 'naplesmodernchoicemedicine.com',
 } as const;
 
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+export const sitePath = (pathname: string) =>
+  `${basePath}${pathname.startsWith('/') ? pathname : `/${pathname}`}`;
+
 export const navigation = [
-  { label: 'Home', href: '/' },
-  { label: 'About', href: '/about/' },
-  { label: 'Services', href: '/services/' },
-  { label: 'Concierge Care', href: '/concierge-care/' },
-  { label: 'New Patients', href: '/new-patients/' },
-  { label: 'FAQ', href: '/faq/' },
-  { label: 'Contact', href: '/contact/' },
+  { label: 'Home', href: sitePath('/') },
+  { label: 'About', href: sitePath('/about/') },
+  { label: 'Services', href: sitePath('/services/') },
+  { label: 'Concierge Care', href: sitePath('/concierge-care/') },
+  { label: 'New Patients', href: sitePath('/new-patients/') },
+  { label: 'FAQ', href: sitePath('/faq/') },
+  { label: 'Contact', href: sitePath('/contact/') },
 ] as const;

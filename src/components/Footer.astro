@@ -1,6 +1,6 @@
 ---
 import LogoMark from './LogoMark.astro';
-import { navigation, practice } from '../data/practice';
+import { navigation, practice, sitePath } from '../data/practice';
 ---
 
 <aside class="safety" aria-label="Important medical notice">
@@ -30,7 +30,10 @@ import { navigation, practice } from '../data/practice';
             </li>
           ))
         }
-        <li><a href="/privacy-disclaimer/">Privacy &amp; Disclaimer</a></li>
+        <li>
+          <a href={sitePath('/privacy-disclaimer/')}>Privacy &amp; Disclaimer</a
+          >
+        </li>
       </ul>
     </div>
     <div>

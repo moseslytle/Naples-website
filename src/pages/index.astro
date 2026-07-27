@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PracticeImage from '../components/PracticeImage.astro';
 import ContactCard from '../components/ContactCard.astro';
-import { practice } from '../data/practice';
+import { practice, sitePath } from '../data/practice';
 ---
 
 <BaseLayout
@@ -21,8 +21,9 @@ import { practice } from '../data/practice';
         </p>
         <div class="button-row">
           <a class="button" href={practice.phone.href}>Call the Practice</a>
-          <a class="button button--secondary" href="/concierge-care/"
-            >Learn About Concierge Care</a
+          <a
+            class="button button--secondary"
+            href={sitePath('/concierge-care/')}>Learn About Concierge Care</a
           >
         </div>
         <p class="hero__note">
@@ -48,7 +49,7 @@ import { practice } from '../data/practice';
         included services vary by practice.
       </p>
       <div class="button-row">
-        <a class="button button--secondary" href="/concierge-care/"
+        <a class="button button--secondary" href={sitePath('/concierge-care/')}
           >How Concierge Care Works</a
         >
       </div>
@@ -74,7 +75,7 @@ import { practice } from '../data/practice';
           {practice.provider.title}<br />{practice.provider.experience}
         </p>
         <div class="button-row">
-          <a class="button button--secondary" href="/about/"
+          <a class="button button--secondary" href={sitePath('/about/')}
             >About the Practice</a
           >
         </div>
@@ -115,7 +116,9 @@ import { practice } from '../data/practice';
         </li>
       </ol>
       <div class="button-row">
-        <a class="button" href="/new-patients/">New Patient Information</a>
+        <a class="button" href={sitePath('/new-patients/')}
+          >New Patient Information</a
+        >
       </div>
     </div>
   </section>

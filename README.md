@@ -36,24 +36,14 @@ npm test
 
 All known contact information and shared navigation live in `src/data/practice.ts`. Update it there rather than repeating details in page components.
 
-Unconfirmed information is intentionally marked in source and on the draft site with `[CLIENT TO PROVIDE: ...]`. Search for that phrase before launch:
+Unconfirmed information is hidden from the client-facing preview and tracked in `INTERNAL-CONTENT-CHECKLIST.md`.
 
-```sh
-rg "CLIENT TO PROVIDE|CLIENT / LEGAL"
-```
+## Client photography
 
-## Adding client photography
-
-Create `public/images/` and add optimized WebP or AVIF files using these expected names:
-
-| Filename                 | Recommended size | Use                    |
-| ------------------------ | ---------------- | ---------------------- |
-| `practice-hero.webp`     | 1600 × 1200 px   | Homepage hero          |
-| `office-interior.webp`   | 1600 × 1200 px   | About page             |
-| `provider-portrait.webp` | 1200 × 1500 px   | Provider sections      |
-| `practice-exterior.webp` | 1600 × 1200 px   | Contact and directions |
-
-Replace the corresponding `ImagePlaceholder` component with an Astro image component after the final crops are available. Alt text should describe useful visible content without phrases such as “image of.” Decorative photos should use empty alt text.
+The approved source photography is stored in `images/`. Optimized WebP versions
+used by Astro’s image component are in `src/assets/images/`. Each rendered image
+includes intrinsic dimensions, responsive cropping, lazy loading outside the
+homepage hero, and descriptive alternative text.
 
 ## Content and launch checklist
 

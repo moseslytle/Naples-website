@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-import { clientNeeds, practice } from '../data/practice';
+import { practice } from '../data/practice';
 
 const faqs = [
   {
@@ -10,28 +10,20 @@ const faqs = [
   },
   {
     q: 'What is concierge family medicine?',
-    a: 'It is generally a membership-based primary care model intended to support a closer relationship between patients and their practice. Exact services, access, and fees differ by practice. Naples Modern Choice Medicine’s approved details are still being finalized.',
+    a: 'Concierge family medicine uses a membership model to support more personalized, ongoing primary care. Membership details, access, and included services vary by practice.',
   },
   {
     q: 'Can I book an appointment online?',
-    a: 'No. This Phase 1 website does not offer online booking. Please contact the office directly.',
-  },
-  {
-    q: 'Can I send medical information through this website?',
-    a: 'No. This website has no intake or contact form and does not collect sensitive patient information. Follow instructions from the office for sharing medical information through an approved channel.',
+    a: 'No. This website does not offer online booking. Please contact the office directly.',
   },
   {
     q: 'Is this website for medical emergencies?',
     a: 'No. Call 911 in an emergency. Do not rely on this website or email for urgent or emergency care.',
   },
   {
-    q: 'Does the website sell medication?',
+    q: 'Can I purchase medications through the website?',
     a: 'No. Medications and pharmaceuticals are not sold through this website.',
   },
-  { q: 'What are the office hours?', a: clientNeeds.hours },
-  { q: 'What services are offered?', a: clientNeeds.services },
-  { q: 'How much does membership cost?', a: clientNeeds.pricing },
-  { q: 'How do I become a patient?', a: clientNeeds.newPatientProcess },
 ];
 ---
 
@@ -42,7 +34,7 @@ const faqs = [
   <PageHero
     eyebrow="Frequently asked questions"
     title="Straightforward answers to common questions."
-    intro="Find general information here, then contact the office for questions specific to your situation. Please do not send sensitive medical information through general website channels."
+    intro="Find general information here, then contact the office for questions about the practice."
   />
   <section class="section">
     <div class="narrow faq-list">
@@ -51,12 +43,7 @@ const faqs = [
           <details open={index === 0}>
             <>
               <summary>{faq.q}</summary>
-              <div
-                class:list={{
-                  answer: true,
-                  placeholder: faq.a.startsWith('[CLIENT'),
-                }}
-              >
+              <div class="answer">
                 <p>{faq.a}</p>
               </div>
             </>
@@ -70,7 +57,7 @@ const faqs = [
       <h2>Still have a general question?</h2><p>
         Call the office at <a href={practice.phone.href}
           >{practice.phone.display}</a
-        >. For an emergency, call 911.
+        >.
       </p><div class="button-row">
         <a class="button" href="/contact/">Contact the Office</a>
       </div>
@@ -85,20 +72,40 @@ const faqs = [
     border-bottom: 1px solid var(--border);
   }
   summary {
+    min-height: 2.75rem;
     padding: 1.4rem 2.5rem 1.4rem 0;
     cursor: pointer;
     font-family: var(--font-serif);
     font-size: 1.3rem;
     font-weight: 600;
     line-height: 1.25;
+    transition:
+      color 200ms ease-out,
+      background-color 200ms ease-out;
+  }
+  summary:hover {
+    color: var(--pine);
   }
   .answer {
     padding: 0 2rem 1rem 0;
     color: var(--ink-soft);
   }
-  .answer.placeholder {
-    margin-bottom: 1.2rem;
-    padding: 1rem 1.15rem;
-    color: #60382d;
+  details[open] .answer {
+    animation: faq-answer-in 240ms ease-out both;
+  }
+  @keyframes faq-answer-in {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    details[open] .answer {
+      animation: none;
+    }
   }
 </style>

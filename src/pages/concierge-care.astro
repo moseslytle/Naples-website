@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-import { clientNeeds, practice } from '../data/practice';
+import PracticeImage from '../components/PracticeImage.astro';
+import { practice } from '../data/practice';
 ---
 
 <BaseLayout
@@ -10,8 +11,8 @@ import { clientNeeds, practice } from '../data/practice';
 >
   <PageHero
     eyebrow="Concierge care"
-    title="A more direct relationship with your family medicine practice."
-    intro="Concierge medicine generally uses a membership model to support a closer, ongoing relationship between patients and their primary care practice. Each practice’s model is different, so the details matter."
+    title="Understanding concierge family medicine."
+    intro="Concierge family medicine uses a membership model to support more personalized, ongoing primary care. Membership details, access, and included services vary by practice."
     ><div class="button-row">
       <a class="button" href="/new-patients/">New Patient Information</a><a
         class="button button--secondary"
@@ -20,51 +21,25 @@ import { clientNeeds, practice } from '../data/practice';
     </div></PageHero
   >
   <section class="section">
-    <div class="narrow prose">
-      <h2>How the model works</h2><p>
-        Patients typically pay a membership fee for defined services or access
-        arrangements. Naples Modern Choice Medicine will publish its approved
-        inclusions, limitations, fees, and communication expectations here
-        before launch.
-      </p><p class="placeholder">{clientNeeds.pricing}</p><p
-        class="placeholder"
-      >
-        {clientNeeds.responseTime}
-      </p><h2>Questions worth asking</h2><ul>
-        <li>What care and access does the membership include?</li><li>
-          What costs may be separate from the membership?
-        </li><li>
-          How are urgent concerns handled during and outside office hours?
-        </li><li>
-          How does the practice coordinate care that happens elsewhere?
-        </li><li>What is the process for joining or ending a membership?</li>
-      </ul><p>
-        These questions are educational prompts, not statements about this
-        practice’s policies.
-      </p>
-    </div>
-  </section>
-  <section class="section section--mist">
-    <div class="container">
-      <p class="eyebrow">Practice-specific details</p><h2>
-        What still needs client approval
-      </h2><div class="grid grid--3">
-        <div class="card">
-          <h3>Membership</h3><p class="placeholder">
-            [CLIENT TO PROVIDE: eligibility, enrollment, term, and cancellation
-            details]
-          </p>
-        </div><div class="card">
-          <h3>Access</h3><p class="placeholder">
-            [CLIENT TO PROVIDE: scheduling, visit length, and after-hours
-            policies]
-          </p>
-        </div><div class="card">
-          <h3>Costs</h3><p class="placeholder">
-            [CLIENT TO PROVIDE: fees, billing cadence, and services billed
-            separately]
-          </p>
-        </div>
+    <div class="container split">
+      <PracticeImage
+        src="/images/concierge-consultation.webp"
+        alt="Dr. Sandy Naples speaking with a seated woman in the office"
+        objectPosition="center 35%"
+      />
+      <div class="prose">
+        <h2>Questions to consider</h2><p>
+          Before joining a concierge practice, it is helpful to understand the
+          membership and how care is arranged.
+        </p><ul>
+          <li>What care and access does the membership include?</li><li>
+            What costs may be separate from the membership?
+          </li><li>
+            How are urgent concerns handled during and outside office hours?
+          </li><li>
+            How does the practice coordinate care that happens elsewhere?
+          </li><li>What is the process for joining or ending a membership?</li>
+        </ul>
       </div>
     </div>
   </section>

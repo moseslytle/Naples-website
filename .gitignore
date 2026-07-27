@@ -3,6 +3,9 @@ dist/
 .astro/
 .DS_Store
 *.log
+audit-*.jpg
+images/*.zip
+images/*.pdf
 .env
 .env.*
 !.env.example

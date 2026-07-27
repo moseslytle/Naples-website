@@ -1,66 +1,36 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-import { clientNeeds, practice } from '../data/practice';
+import PracticeImage from '../components/PracticeImage.astro';
+import { practice } from '../data/practice';
 ---
 
 <BaseLayout
   title="Services"
-  description="Explore service information for Naples Modern Choice Medicine. Final clinical service details are pending client approval."
+  description="Contact Naples Modern Choice Medicine for information about available family medicine services and concierge membership."
 >
   <PageHero
     eyebrow="Services"
-    title="Family medicine services, explained with clarity."
-    intro="Naples Modern Choice Medicine is a concierge family medicine practice. Exact clinical offerings and any exclusions will appear here only after the practice reviews and approves them."
+    title="Family medicine services."
+    intro="Contact the office for current information about available services, concierge membership, and whether the practice may be a good fit for your needs."
     ><div class="button-row">
       <a class="button" href={practice.phone.href}>Ask the Office</a>
     </div></PageHero
   >
   <section class="section">
-    <div class="container">
-      <div class="grid grid--3">
-        <article class="card">
-          <h2>Approved service list</h2><p class="placeholder">
-            {clientNeeds.services}
-          </p>
-        </article><article class="card">
-          <h2>What membership includes</h2><p class="placeholder">
-            {clientNeeds.pricing}
-          </p>
-        </article><article class="card">
-          <h2>Care availability</h2><p class="placeholder">
-            {clientNeeds.responseTime}
-          </p>
-        </article>
+    <div class="container split">
+      <div class="prose">
+        <h2>General information</h2><p>
+          This website provides general information only. It does not establish
+          a patient-provider relationship, replace individualized medical
+          advice, or provide diagnosis or treatment.
+        </p>
       </div>
-    </div>
-  </section>
-  <section class="section section--sand">
-    <div class="narrow prose">
-      <p class="eyebrow">Before publication</p><h2>
-        Details we will confirm with the practice
-      </h2><ul class="check-list">
-        <li>Which family medicine services are offered</li><li>
-          Which age groups the practice serves
-        </li><li>Any services not included in membership</li><li>
-          How outside testing, specialists, and hospital care are handled
-        </li><li>Any insurance or billing language approved for the website</li>
-      </ul><p class="placeholder">
-        [CLIENT TO PROVIDE: reviewed service, eligibility, insurance, and
-        exclusion language]
-      </p>
-    </div>
-  </section>
-  <section class="section">
-    <div class="narrow prose">
-      <h2>Important service information</h2><p>
-        This website provides general information only. It does not establish a
-        patient-provider relationship, replace individualized medical advice, or
-        provide diagnosis or treatment.
-      </p><p>
-        No medication or pharmaceutical products are sold through this website.
-        For service and scheduling questions, contact the office directly.
-      </p>
+      <PracticeImage
+        src="/images/services-care.webp"
+        alt="Dr. Sandy Naples using a stethoscope while examining a seated woman"
+        objectPosition="center 38%"
+      />
     </div>
   </section>
 </BaseLayout>

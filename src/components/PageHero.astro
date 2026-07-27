@@ -21,7 +21,24 @@ const { eyebrow, title, intro } = Astro.props;
   .page-hero {
     position: relative;
     padding-block: clamp(4.5rem, 10vw, 8rem);
+    overflow: hidden;
     background:
+      radial-gradient(
+        circle at 94% 18%,
+        rgba(255, 255, 255, 0.34) 0 2.2rem,
+        transparent 2.25rem
+      ),
+      radial-gradient(
+        circle at 78% 76%,
+        rgba(135, 170, 163, 0.16) 0 3.25rem,
+        transparent 3.3rem
+      ),
+      radial-gradient(
+        circle at 72% 18%,
+        transparent 0 1.35rem,
+        rgba(36, 91, 85, 0.14) 1.4rem 1.48rem,
+        transparent 1.53rem
+      ),
       radial-gradient(
         circle at 86% 30%,
         rgba(135, 170, 163, 0.28) 0 9rem,
@@ -39,6 +56,25 @@ const { eyebrow, title, intro } = Astro.props;
     border: 1px solid rgba(36, 91, 85, 0.25);
     border-radius: 50%;
     content: '';
+  }
+
+  .page-hero::before {
+    position: absolute;
+    top: 28%;
+    right: 3%;
+    width: 1.4rem;
+    height: 1.4rem;
+    border: 1px solid rgba(36, 91, 85, 0.2);
+    border-radius: 50%;
+    box-shadow:
+      -8rem 5rem 0 0.35rem rgba(255, 255, 255, 0.2),
+      -3rem 9rem 0 -0.2rem rgba(36, 91, 85, 0.1);
+    content: '';
+  }
+
+  .page-hero .container {
+    position: relative;
+    z-index: 1;
   }
 
   h1 {

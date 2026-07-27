@@ -36,15 +36,3 @@ export const navigation = [
   { label: 'FAQ', href: '/faq/' },
   { label: 'Contact', href: '/contact/' },
 ] as const;
-
-export const clientNeeds = {
-  providerBio: '[CLIENT TO PROVIDE: approved provider biography]',
-  services: '[CLIENT TO PROVIDE: approved list and descriptions of services]',
-  hours: '[CLIENT TO PROVIDE: office hours and holiday policy]',
-  newPatientProcess:
-    '[CLIENT TO PROVIDE: confirmed new-patient process and eligibility details]',
-  pricing:
-    '[CLIENT TO PROVIDE: approved membership pricing and what is included]',
-  responseTime:
-    '[CLIENT TO PROVIDE: approved communication expectations and response times]',
-} as const;

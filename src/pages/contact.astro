@@ -1,18 +1,18 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-import ImagePlaceholder from '../components/ImagePlaceholder.astro';
-import { clientNeeds, practice } from '../data/practice';
+import PracticeImage from '../components/PracticeImage.astro';
+import { practice } from '../data/practice';
 ---
 
 <BaseLayout
-  title="Contact, Hours & Directions"
+  title="Contact & Directions"
   description="Contact details, location, and directions for Naples Modern Choice Medicine in Naples, Florida."
 >
   <PageHero
     eyebrow="Contact & location"
-    title="Connect with the office."
-    intro="Call or use the approved patient communication email for general questions and next steps. Online booking is not available on this website."
+    title="Contact the office."
+    intro="Call or use the patient communication email for general questions and next steps. Online booking is not available on this website."
   />
   <section class="section">
     <div class="container contact-grid">
@@ -31,23 +31,19 @@ import { clientNeeds, practice } from '../data/practice';
               class="email"
               href={practice.email.href}>{practice.email.display}</a
             >
-          </li><li>
-            <strong>Office hours</strong><span class="placeholder"
-              >{clientNeeds.hours}</span
-            >
           </li>
         </ul><div class="button-row">
           <a class="button" href={practice.phone.href}>Call the Practice</a><a
             class="button button--secondary"
             href={practice.mapUrl}
             target="_blank"
-            rel="noopener noreferrer">Get Directions</a
+            rel="noopener noreferrer"
+            >Get Directions<span class="sr-only"> (opens in a new tab)</span></a
           >
         </div>
-      </div><ImagePlaceholder
-        label="Practice exterior and entrance photograph"
-        filename="practice-exterior.webp"
-        dimensions="1600 × 1200 px"
+      </div><PracticeImage
+        src="/images/contact-exterior.webp"
+        alt="Naples Modern Choice Medicine sign on the office building"
       />
     </div>
   </section>
@@ -59,9 +55,6 @@ import { clientNeeds, practice } from '../data/practice';
         Follow office guidance before sending medical or other sensitive
         personal information. This public website does not provide a secure
         contact or intake form.
-      </p><p class="placeholder">
-        [CLIENT TO PROVIDE: parking, accessibility, landmark, and arrival
-        instructions]
       </p>
     </div>
   </section>
@@ -69,7 +62,7 @@ import { clientNeeds, practice } from '../data/practice';
 <style>
   .contact-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.9fr);
+    grid-template-columns: minmax(18rem, 0.82fr) minmax(24rem, 1.18fr);
     align-items: stretch;
     gap: 2rem;
   }
@@ -78,10 +71,6 @@ import { clientNeeds, practice } from '../data/practice';
   }
   .email {
     overflow-wrap: anywhere;
-  }
-  .placeholder {
-    display: block;
-    margin-top: 0.4rem;
   }
   @media (max-width: 760px) {
     .contact-grid {

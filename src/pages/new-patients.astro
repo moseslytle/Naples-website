@@ -2,7 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import ContactCard from '../components/ContactCard.astro';
-import { clientNeeds, practice } from '../data/practice';
+import PracticeImage from '../components/PracticeImage.astro';
+import { practice } from '../data/practice';
 ---
 
 <BaseLayout
@@ -12,7 +13,7 @@ import { clientNeeds, practice } from '../data/practice';
   <PageHero
     eyebrow="New patients"
     title="Start with a conversation with our office."
-    intro="This website does not collect medical details or offer online booking. Contact the office to ask general questions and learn the approved next steps."
+    intro="This website does not collect medical details or offer online booking. Contact the office to ask general questions and learn the next steps."
     ><div class="button-row">
       <a class="button" href={practice.phone.href}>Call the Practice</a><a
         class="button button--secondary"
@@ -26,33 +27,36 @@ import { clientNeeds, practice } from '../data/practice';
         <h2>What to expect</h2><ol>
           <li>
             <strong>Review the practice information.</strong> Learn about the concierge
-            model, services once approved, and common questions.
+            model and common questions.
           </li><li>
             <strong>Contact the office.</strong> Ask about availability, membership,
             and the process for getting started.
           </li><li>
-            <strong>Follow the office’s instructions.</strong> Any necessary patient
-            paperwork or medical information will be handled through practice-approved
-            channels, not this public website.
+            <strong>Follow the office’s instructions.</strong> The office will provide
+            instructions for completing paperwork and securely sharing any required
+            information.
           </li>
-        </ol><p class="placeholder">{clientNeeds.newPatientProcess}</p>
+        </ol>
       </div><ContactCard />
     </div>
   </section>
   <section class="section section--sand">
-    <div class="narrow prose">
-      <h2>Protecting your information</h2><p>
-        Do not send symptoms, diagnoses, medical history, medications, insurance
-        information, Social Security numbers, or other sensitive details through
-        a general website inquiry.
-      </p><p>
-        The listed email is the practice’s approved patient communication
-        address. The practice should provide final guidance about what
-        information may be sent through it.
-      </p><p class="placeholder">
-        [CLIENT TO PROVIDE: approved patient communication and privacy
-        instructions]
-      </p>
+    <div class="container split">
+      <PracticeImage
+        src="/images/new-patients-welcome.webp"
+        alt="Dr. Sandy Naples at the practice entrance"
+        objectPosition="center 30%"
+      />
+      <div class="prose">
+        <h2>Protecting your information</h2><p>
+          Do not send symptoms, diagnoses, medical history, medications,
+          insurance information, Social Security numbers, or other sensitive
+          details through a general website inquiry.
+        </p><p>
+          The office will explain how to securely share information when it is
+          needed. For a medical emergency, call 911.
+        </p>
+      </div>
     </div>
   </section>
 </BaseLayout>

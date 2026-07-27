@@ -15,11 +15,10 @@ import { navigation, practice } from '../data/practice';
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-brand">
-      <div class="brand-line"><LogoMark /><strong>{practice.name}</strong></div>
+      <div class="brand-line">
+        <LogoMark variant="light" /><strong>{practice.name}</strong>
+      </div>
       <p>A concierge family medicine practice serving Naples, Florida.</p>
-      <p class="draft-note">
-        Website and medical/legal copy are drafts pending final client review.
-      </p>
     </div>
     <div>
       <h2>Explore</h2>
@@ -116,16 +115,24 @@ import { navigation, practice } from '../data/practice';
 
   a {
     color: #e9f2ef;
+    overflow-wrap: anywhere;
+    transition:
+      color 180ms ease-out,
+      text-decoration-color 180ms ease-out;
+  }
+
+  a:hover {
+    color: var(--white);
+  }
+
+  a:focus-visible {
+    outline-color: var(--white);
+    box-shadow: 0 0 0 2px var(--pine-dark);
   }
 
   address {
     margin-bottom: 1rem;
     font-style: normal;
-  }
-
-  .draft-note {
-    color: #bbd0cb;
-    font-size: 0.82rem;
   }
 
   .legal-row {

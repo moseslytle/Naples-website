@@ -3,6 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 import { practice } from '../data/practice';
+import revealScript from '../scripts/reveal.ts?raw';
 
 interface Props {
   title: string;
@@ -35,9 +36,10 @@ const fullTitle =
   </head>
   <body>
     <Header />
-    <main id="main-content" tabindex="-1">
+    <main id="main-content">
       <slot />
     </main>
     <Footer />
+    <script is:inline set:html={revealScript} />
   </body>
 </html>

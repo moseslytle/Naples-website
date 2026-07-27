@@ -1,5 +1,5 @@
 ---
-import { clientNeeds, practice } from '../data/practice';
+import { practice } from '../data/practice';
 ---
 
 <div class="contact-card">
@@ -21,13 +21,7 @@ import { clientNeeds, practice } from '../data/practice';
         practice.address.cityStateZip
       }
     </li>
-    <li>
-      <strong>Hours</strong><span class="placeholder">{clientNeeds.hours}</span>
-    </li>
   </ul>
-  <p class="caution">
-    Do not use email for emergencies. Call 911 in an emergency.
-  </p>
 </div>
 
 <style>
@@ -36,21 +30,19 @@ import { clientNeeds, practice } from '../data/practice';
     border-radius: var(--radius-lg);
     background: var(--white);
     box-shadow: var(--shadow);
+    transition:
+      box-shadow 220ms ease-out,
+      transform 220ms ease-out;
   }
 
   h2 {
     font-size: clamp(1.8rem, 3vw, 2.5rem);
   }
 
-  .placeholder {
-    display: block;
-    margin-top: 0.4rem;
-  }
-
-  .caution {
-    margin: 1.5rem 0 0;
-    color: #60382d;
-    font-size: 0.85rem;
-    font-weight: 700;
+  @media (hover: hover) {
+    .contact-card:hover {
+      box-shadow: 0 20px 52px rgba(24, 52, 50, 0.12);
+      transform: translateY(-1px);
+    }
   }
 </style>

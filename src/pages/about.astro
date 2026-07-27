@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-import ImagePlaceholder from '../components/ImagePlaceholder.astro';
-import { clientNeeds, practice } from '../data/practice';
+import PracticeImage from '../components/PracticeImage.astro';
+import { practice } from '../data/practice';
 ---
 
 <BaseLayout
@@ -11,69 +11,37 @@ import { clientNeeds, practice } from '../data/practice';
 >
   <PageHero
     eyebrow="About us"
-    title="A personal practice with room for meaningful care."
-    intro="Naples Modern Choice Medicine is a concierge family medicine practice in Naples, Florida. This page will introduce the practice’s story, philosophy, and provider once final details are approved."
+    title="Personal family medicine in Naples."
+    intro="Naples Modern Choice Medicine is a concierge family medicine practice led by Sandy P. Naples, D.O., F.A.A.F.P., a board-certified family physician with more than 30 years of experience in family medicine."
   />
   <section class="section">
     <div class="container split">
       <div>
         <p class="eyebrow">The practice</p><h2>
-          Built for a closer care relationship
+          A more personal approach to care.
         </h2><p>
-          Our draft approach is simple: explain care clearly, make the process
-          easier to understand, and give each patient relationship the attention
-          it deserves. Final language about the practice philosophy requires
-          client review.
-        </p><p class="placeholder">
-          [CLIENT TO PROVIDE: founding story, care philosophy, and approved
-          mission statement]
+          Concierge family medicine supports a closer, ongoing relationship
+          between patients and their family physician. The practice offers a
+          setting where care can be thoughtful, personal, and clearly explained.
         </p>
-      </div><ImagePlaceholder
-        label="Warm interior office photograph"
-        filename="office-interior.webp"
-        dimensions="1600 × 1200 px"
+      </div><PracticeImage
+        src="/images/about-practice.webp"
+        alt="Dr. Sandy Naples and a woman outside the Naples Modern Choice Medicine office"
       />
     </div>
   </section>
   <section class="section section--mist">
     <div class="container split">
-      <ImagePlaceholder
-        label="Approved provider portrait"
-        filename="provider-portrait.webp"
-        dimensions="1200 × 1500 px"
+      <PracticeImage
+        src="/images/provider-portrait.webp"
+        alt="Dr. Sandy Naples"
         portrait
       /><div>
         <p class="eyebrow">Your provider</p><h2>{practice.provider.name}</h2><p>
           <strong>{practice.provider.title}</strong><br />
           {practice.provider.experience}
-        </p><p class="placeholder">
-          {clientNeeds.providerBio}
-        </p><p>
-          Any additional education, affiliations, or professional claims must be
-          verified before publication.
         </p>
       </div>
-    </div>
-  </section>
-  <section class="section">
-    <div class="narrow prose">
-      <h2>What guides the practice</h2><div class="grid grid--2">
-        <div class="card">
-          <h3>Clear communication</h3><p>
-            Patients should be able to understand what the practice offers and
-            what to expect. Specific communication commitments are pending
-            client approval.
-          </p>
-        </div><div class="card">
-          <h3>Personal continuity</h3><p>
-            The concierge model is intended to support an ongoing relationship
-            with a family medicine practice. Exact access details are still to
-            be confirmed.
-          </p>
-        </div>
-      </div><p class="placeholder">
-        [CLIENT TO PROVIDE: approved values or patient experience commitments]
-      </p>
     </div>
   </section>
 </BaseLayout>

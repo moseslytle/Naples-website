@@ -1,19 +1,30 @@
-<svg class="mark" viewBox="0 0 48 48" aria-hidden="true">
-  <circle cx="24" cy="24" r="22" fill="currentColor" opacity="0.14"></circle>
-  <path d="M15 29c5-1 8-5 9-12 5 5 8 10 9 16-6-3-12-3-18-4Z" fill="currentColor"
-  ></path>
-  <path
-    d="M24 18c-1 8-1 13 0 18"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"></path>
-</svg>
+---
+import { Image } from 'astro:assets';
+import darkLogo from '../assets/images/logo-black.webp';
+import lightLogo from '../assets/images/logo-white.webp';
+
+interface Props {
+  variant?: 'dark' | 'light';
+}
+
+const { variant = 'dark' } = Astro.props;
+const logo = variant === 'light' ? lightLogo : darkLogo;
+---
+
+<Image
+  class="mark"
+  src={logo}
+  alt=""
+  width="48"
+  height="52"
+  loading={variant === 'dark' ? 'eager' : 'lazy'}
+/>
 
 <style>
-  .mark {
+  :global(.mark) {
     width: 2.6rem;
-    color: var(--pine);
+    height: 2.85rem;
+    object-fit: contain;
     flex: 0 0 auto;
   }
 </style>

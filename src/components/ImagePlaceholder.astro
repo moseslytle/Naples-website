@@ -6,22 +6,17 @@ interface Props {
   portrait?: boolean;
 }
 
-const { label, filename, dimensions, portrait = false } = Astro.props;
+const { label, portrait = false } = Astro.props;
 ---
 
-<div
-  class:list={['image-slot', { 'image-slot--portrait': portrait }]}
-  role="img"
-  aria-label={`${label} placeholder`}
->
+<div class:list={['image-slot', { 'image-slot--portrait': portrait }]}>
   <svg viewBox="0 0 80 80" aria-hidden="true">
     <path d="M17 58 33 38l11 12 8-9 13 17H17Z" fill="currentColor" opacity=".35"
     ></path>
     <circle cx="53" cy="27" r="7" fill="currentColor" opacity=".5"></circle>
   </svg>
   <strong>{label}</strong>
-  <span>{filename}</span>
-  <small>Recommended: {dimensions}, WebP or AVIF</small>
+  <small>Photography will be added here.</small>
 </div>
 
 <style>

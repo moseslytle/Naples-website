@@ -10,7 +10,24 @@ const faqs = [
   },
   {
     q: 'What is concierge family medicine?',
-    a: 'Concierge family medicine uses a membership model to support more personalized, ongoing primary care. Membership details, access, and included services vary by practice.',
+    a: 'Concierge family medicine uses a membership model to support more personalized, ongoing primary care with enhanced access to your physician.',
+  },
+  {
+    q: 'How is concierge medicine different from a traditional primary care practice?',
+    bullets: [
+      'Smaller patient panel',
+      'Longer appointments',
+      'Direct communication with your physician',
+      'Focus on prevention and wellness',
+    ],
+  },
+  {
+    q: 'Do you accept insurance?',
+    a: 'No. Your membership fee is not paid through insurance. However, all patients must maintain health insurance to cover other aspects of their healthcare, including, but not limited to, prescriptions, imaging and labs, specialists, hospitalization, and emergency care.',
+  },
+  {
+    q: 'How do I become a member?',
+    a: 'For more information on becoming a member, please contact the office at (239) 499-4765. Membership availability is limited.',
   },
   {
     q: 'Can I book an appointment online?',
@@ -44,7 +61,14 @@ const faqs = [
             <>
               <summary>{faq.q}</summary>
               <div class="answer">
-                <p>{faq.a}</p>
+                {faq.a && <p>{faq.a}</p>}
+                {faq.bullets && (
+                  <ul>
+                    {faq.bullets.map((item) => (
+                      <li>{item}</li>
+                    ))}
+                  </ul>
+                )}
               </div>
             </>
           </details>

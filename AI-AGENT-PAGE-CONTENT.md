@@ -18,13 +18,13 @@ Home · About · Services · Concierge Care · New Patients · FAQ · Contact
 
 Naples Modern Choice Medicine
 
-A concierge family medicine practice serving Naples, Florida.
+Personalized Medicine. Elevated Care.
 
 870 111th Avenue North, Suite 3  
 Naples, FL 34108
 
 (239) 499-4765  
-info@naplesmcm.sprucecare.com
+naplesmcm@gmail.com
 
 Medications and pharmaceuticals are not sold through this website.
 
@@ -104,7 +104,7 @@ Open directions in Google Maps
 
 Phone: (239) 499-4765
 
-Patient communication email: info@naplesmcm.sprucecare.com
+Patient communication email: naplesmcm@gmail.com
 
 Office: 870 111th Avenue North, Suite 3, Naples, FL 34108
 
@@ -201,7 +201,7 @@ Call the Practice · Email the Office
 
 Phone: (239) 499-4765
 
-Patient communication email: info@naplesmcm.sprucecare.com
+Patient communication email: naplesmcm@gmail.com
 
 Office: 870 111th Avenue North, Suite 3, Naples, FL 34108
 
@@ -262,7 +262,7 @@ Phone: (239) 499-4765
 
 Fax: (239) 317-1831
 
-Patient communication email: info@naplesmcm.sprucecare.com
+Patient communication email: naplesmcm@gmail.com
 
 Call the Practice · Get Directions
 
@@ -314,4 +314,4 @@ The practice intends to keep its website information clear and current, but cont
 
 ## Contact
 
-Questions about this draft website policy may be directed to Naples Modern Choice Medicine at (239) 499-4765 or info@naplesmcm.sprucecare.com.
+Questions about this draft website policy may be directed to Naples Modern Choice Medicine at (239) 499-4765 or naplesmcm@gmail.com.

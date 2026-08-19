@@ -1,11 +1,6 @@
 // @ts-nocheck -- This file is intentionally browser-valid JavaScript because it
 // is injected inline by BaseLayout.astro to avoid a separate module request.
-const revealSelector = [
-  '.section > .container',
-  '.section > .narrow',
-  '.grid > .card',
-  '.faq-list > details',
-].join(', ');
+const revealSelector = ['.grid > .card', '.faq-list > details'].join(', ');
 
 const revealAll = (elements) => {
   for (const element of elements) {

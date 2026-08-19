@@ -41,7 +41,6 @@ import { practice, sitePath } from '../data/practice';
 
   <section class="section intro">
     <div class="narrow">
-      <p class="eyebrow">A thoughtful approach to primary care</p>
       <h2>What concierge family medicine means</h2>
       <p class="lede">
         Concierge family medicine uses a membership model to support more
@@ -64,15 +63,14 @@ import { practice, sitePath } from '../data/practice';
         portrait
       />
       <div>
-        <p class="eyebrow">Meet your provider</p>
         <h2>Meet Dr. Sandy Naples.</h2>
-        <p>
-          Sandy P. Naples, D.O., F.A.A.F.P., is a board-certified family
-          physician with more than 30 years of experience in family medicine.
-        </p>
         <h3>{practice.provider.name}</h3>
         <p class="provider-detail">
           {practice.provider.title}<br />{practice.provider.experience}
+        </p>
+        <p>
+          His mission is to provide comprehensive healthcare that prioritizes
+          your wellness while recognizing the demands of your busy lifestyle.
         </p>
         <div class="button-row">
           <a class="button button--secondary" href={sitePath('/about/')}
@@ -87,9 +85,7 @@ import { practice, sitePath } from '../data/practice';
     <div class="container">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">Getting started</p><h2>
-            A clear path for new patients
-          </h2>
+          <h2>A clear path for new patients</h2>
         </div>
         <p>
           There is no online intake or medical-information form on this website.
@@ -148,42 +144,21 @@ import { practice, sitePath } from '../data/practice';
     position: relative;
     overflow: hidden;
     padding-block: clamp(3rem, 8vw, 7rem);
-    background:
-      radial-gradient(
-        circle at 96% 72%,
-        rgba(255, 255, 255, 0.38) 0 2.4rem,
-        transparent 2.45rem
-      ),
-      radial-gradient(
-        circle at 72% 82%,
-        transparent 0 1.4rem,
-        rgba(36, 91, 85, 0.13) 1.45rem 1.53rem,
-        transparent 1.58rem
-      ),
-      radial-gradient(
-        circle at 92% 18%,
-        rgba(135, 170, 163, 0.16) 0 3.5rem,
-        transparent 3.55rem
-      ),
-      radial-gradient(
-        circle at 80% 15%,
-        rgba(135, 170, 163, 0.28),
-        transparent 35%
-      ),
-      linear-gradient(135deg, var(--cream), #f3f7f4);
+    background: linear-gradient(160deg, var(--cream) 45%, var(--mist) 100%);
   }
 
   .hero::after {
     position: absolute;
-    right: 2.5%;
-    bottom: 12%;
-    width: 1.25rem;
-    height: 1.25rem;
-    border: 1px solid rgba(36, 91, 85, 0.2);
+    top: -18%;
+    right: -8%;
+    width: 26rem;
+    height: 26rem;
     border-radius: 50%;
-    box-shadow:
-      -7rem -1rem 0 0.45rem rgba(255, 255, 255, 0.2),
-      -3.5rem -8rem 0 -0.1rem rgba(36, 91, 85, 0.1);
+    background: radial-gradient(
+      circle,
+      rgba(135, 170, 163, 0.22),
+      transparent 68%
+    );
     content: '';
   }
 
@@ -230,14 +205,14 @@ import { practice, sitePath } from '../data/practice';
     counter-reset: step;
   }
   .steps strong {
-    display: grid;
-    width: 2.5rem;
-    height: 2.5rem;
-    place-items: center;
-    margin-bottom: 1.2rem;
-    border-radius: 50%;
-    background: var(--pine);
-    color: var(--white);
+    display: block;
+    margin-bottom: 0.9rem;
+    color: var(--sea);
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 2.1rem;
+    font-weight: 480;
+    line-height: 1;
   }
   address {
     margin-bottom: 1rem;

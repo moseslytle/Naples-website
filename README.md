@@ -32,6 +32,28 @@ npm test
 
 `npm test` audits the built site for all eight expected pages, page titles, descriptions, main landmarks, and broken internal links.
 
+## Visual system
+
+Shared spacing, typography, colors, radii, and motion tokens live in
+`src/styles/global.css`. Cormorant Garamond and Manrope are served locally as
+compact WOFF2 files, with their open-font licenses in `src/assets/fonts`.
+Shared page heroes, photography, navigation, and
+contact cards carry the same visual language across all eight routes.
+
+Use `.button` for primary actions, `.button--secondary` for supporting actions,
+and `.text-link` for editorial links. Photography uses responsive WebP sources,
+with landscape crops by default and a separate portrait treatment.
+
+Navigation and FAQ disclosures work without JavaScript. Small progressive
+enhancements add sticky-header feedback, menu dismissal, and disclosure motion;
+all respect reduced-motion preferences. Scheduling continues through the
+office's existing contact process.
+
+Member payments open the client-supplied PayerExpress portal in a new tab.
+The link is available in the header, footer, and Contact page, and is configured
+as `practice.paymentUrl` in `src/data/practice.ts`. No payment details are
+collected by this site.
+
 ## Updating practice details
 
 All known contact information and shared navigation live in `src/data/practice.ts`. Update it there rather than repeating details in page components.

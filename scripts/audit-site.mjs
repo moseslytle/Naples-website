@@ -121,22 +121,9 @@ if (htmlFiles.length !== 8)
   errors.push(`Expected 8 HTML pages, found ${htmlFiles.length}`);
 
 const globalStyles = readFileSync('src/styles/global.css', 'utf8');
-const revealScript = readFileSync('src/scripts/reveal.ts', 'utf8');
 
 if (!globalStyles.includes('@media (prefers-reduced-motion: reduce)'))
   errors.push('Global styles: missing reduced-motion fallback');
-if (
-  !globalStyles.includes('.reveal.is-reveal-pending') ||
-  !globalStyles.includes('opacity: 1 !important')
-)
-  errors.push(
-    'Global styles: reveal content lacks a visible reduced-motion state',
-  );
-if (
-  !revealScript.includes('prefers-reduced-motion: reduce') ||
-  !revealScript.includes("'IntersectionObserver' in window")
-)
-  errors.push('Reveal script: missing motion-preference or feature detection');
 if (
   htmlFiles.some((file) =>
     /class="[^"]*\bis-reveal-pending\b/.test(readFileSync(file, 'utf8')),

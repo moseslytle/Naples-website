@@ -2,6 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import PracticeImage from '../components/PracticeImage.astro';
+import ContactLink from '../components/ContactLink.astro';
+import ActionLink from '../components/ActionLink.astro';
 import { practice } from '../data/practice';
 ---
 
@@ -13,7 +15,10 @@ import { practice } from '../data/practice';
     eyebrow="Contact & location"
     title="Contact the office."
     intro="Call or use the patient communication email for general questions and next steps. Online booking is not available on this website."
-  />
+    ><div class="button-row">
+      <a class="button" href={practice.phone.href}>Call the Practice</a>
+    </div></PageHero
+  >
   <section class="section">
     <div class="container contact-grid">
       <div class="card">
@@ -23,14 +28,17 @@ import { practice } from '../data/practice';
               {practice.address.street}<br />{practice.address.cityStateZip}
             </address>
           </li><li>
-            <strong>Phone</strong><a href={practice.phone.href}
-              >{practice.phone.display}</a
-            >
+            <ContactLink
+              href={practice.phone.href}
+              label="Phone"
+              value={practice.phone.display}
+            />
           </li><li><strong>Fax</strong>{practice.fax}</li><li>
-            <strong>Patient communication email</strong><a
-              class="email"
-              href={practice.email.href}>{practice.email.display}</a
-            >
+            <ContactLink
+              href={practice.email.href}
+              label="Patient communication email"
+              value={practice.email.display}
+            />
           </li>
         </ul><div class="button-row">
           <a class="button" href={practice.phone.href}>Call the Practice</a><a
@@ -40,6 +48,14 @@ import { practice } from '../data/practice';
             rel="noopener noreferrer"
             >Get Directions<span class="sr-only"> (opens in a new tab)</span></a
           >
+        </div>
+        <div class="member-payment">
+          <h3>Member payments</h3>
+          <p>
+            Make a payment through the practice’s PayerExpress payment portal.
+          </p>
+          <ActionLink href={practice.paymentUrl} external>Pay Now</ActionLink>
+          <p class="member-payment__note">Opens PayerExpress in a new tab.</p>
         </div>
       </div><PracticeImage
         src="/images/contact-exterior.webp"
@@ -62,19 +78,41 @@ import { practice } from '../data/practice';
 <style>
   .contact-grid {
     display: grid;
-    grid-template-columns: minmax(18rem, 0.82fr) minmax(24rem, 1.18fr);
-    align-items: stretch;
-    gap: 2rem;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(2rem, 5vw, 5rem);
+  }
+  .contact-grid h2 {
+    font-size: clamp(2rem, 3vw, 2.75rem);
+  }
+  .contact-grid > :global(.practice-image) {
+    --image-ratio: 3 / 2;
   }
   address {
     font-style: normal;
   }
-  .email {
-    overflow-wrap: anywhere;
+  .member-payment {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+  .member-payment h3 {
+    font-size: 1.75rem;
+  }
+  .member-payment p {
+    max-width: 38ch;
+    color: var(--ink-soft);
+  }
+  .member-payment .member-payment__note {
+    margin: 0.75rem 0 0;
+    font-size: 0.8125rem;
   }
   @media (max-width: 760px) {
     .contact-grid {
       grid-template-columns: 1fr;
+    }
+    .contact-grid > :global(.practice-image) {
+      --image-ratio: 3 / 2;
     }
   }
 </style>

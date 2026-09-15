@@ -22,6 +22,7 @@ import { practice } from '../data/practice';
   <section class="section">
     <div class="container split">
       <div>
+        <p class="eyebrow">The practice</p>
         <h2>A more personal approach to care.</h2>
         <p>
           Concierge family medicine supports a closer, ongoing relationship
@@ -41,6 +42,7 @@ import { practice } from '../data/practice';
         alt="Dr. Sandy Naples"
         portrait
       /><div>
+        <p class="eyebrow">Your physician</p>
         <h2>{practice.provider.name}</h2>
         <p>
           <strong>{practice.provider.title}</strong><br />
@@ -88,6 +90,18 @@ import { practice } from '../data/practice';
 <style>
   .credentials-list {
     display: grid;
-    gap: 1rem;
+    gap: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .credentials-list li {
+    margin: 0;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .credentials-list strong {
+    display: block;
+    color: var(--ink);
+    font-weight: 500;
   }
 </style>

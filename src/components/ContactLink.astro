@@ -1,0 +1,68 @@
+---
+import ActionArrow from './ActionArrow.astro';
+
+interface Props {
+  href: string;
+  label: string;
+  value: string;
+}
+const { href, label, value } = Astro.props;
+---
+
+<a class="contact-link" href={href}>
+  <span class="contact-link__copy">
+    <strong>{label}</strong>
+    <span class="contact-link__value">{value}</span>
+  </span>
+  <ActionArrow class="contact-link__arrow" direction="outward" />
+</a>
+
+<style>
+  .contact-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 4rem;
+    width: calc(100% + 1.5rem);
+    margin: -0.5rem -0.75rem;
+    padding: 0.5rem 0.75rem;
+    color: var(--pine-dark);
+    text-decoration: none;
+    transition: background-color var(--duration) ease;
+  }
+  .contact-link__copy {
+    min-width: 0;
+  }
+  .contact-link__value {
+    overflow-wrap: anywhere;
+    text-decoration: underline;
+    text-decoration-color: var(--action-link-rule, #8c998b);
+    text-underline-offset: 0.35em;
+    text-decoration-thickness: 1px;
+    transition: text-decoration-color var(--duration) ease;
+  }
+  .contact-link :global(.contact-link__arrow) {
+    flex: 0 0 1.25rem;
+    transition: transform var(--duration) var(--ease);
+  }
+  .contact-link:is(:hover, :focus-visible) {
+    color: var(--pine-dark);
+    background: var(--mist);
+  }
+  .contact-link:is(:hover, :focus-visible) .contact-link__value {
+    text-decoration-color: currentColor;
+  }
+  .contact-link:is(:hover, :focus-visible) :global(.contact-link__arrow) {
+    transform: translate(2px, -2px);
+  }
+  .contact-link:active :global(.contact-link__arrow) {
+    transform: none;
+  }
+  .contact-link:focus-visible {
+    outline: 2px solid var(--pine);
+    outline-offset: 2px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+</style>

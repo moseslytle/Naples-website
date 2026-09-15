@@ -1,0 +1,30 @@
+---
+import ActionArrow from './ActionArrow.astro';
+
+interface Props {
+  href: string;
+  external?: boolean;
+  direction?: 'forward' | 'down';
+}
+const { href, external = false, direction = 'forward' } = Astro.props;
+---
+
+<a
+  class:list={[
+    'text-link',
+    {
+      'text-link--external': external,
+      'text-link--down': direction === 'down',
+    },
+  ]}
+  href={href}
+  target={external ? '_blank' : undefined}
+  rel={external ? 'noopener noreferrer' : undefined}
+>
+  <span class="text-link__label"><slot /></span>
+  <ActionArrow
+    class="text-link__arrow"
+    direction={external ? 'outward' : direction}
+  />
+  {external && <span class="sr-only"> (opens in a new tab)</span>}
+</a>

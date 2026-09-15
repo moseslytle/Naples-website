@@ -88,48 +88,103 @@ const faqs = [
     </div>
   </section>
 </BaseLayout>
+<script>
+  const motionPreference = window.matchMedia(
+    '(prefers-reduced-motion: reduce)',
+  );
+  document
+    .querySelectorAll<HTMLDetailsElement>('.faq-list details')
+    .forEach((details) => {
+      const summary = details.querySelector('summary');
+      const answer = details.querySelector<HTMLElement>('.answer');
+      let animation: Animation | undefined;
+      let expanded = details.open;
+      summary?.addEventListener('click', (event) => {
+        if (!summary || !answer || !('animate' in details)) return;
+        event.preventDefault();
+        expanded = !(animation ? expanded : details.open);
+        const startHeight = details.getBoundingClientRect().height;
+        animation?.cancel();
+        if (motionPreference.matches) {
+          details.open = expanded;
+          return;
+        }
+        details.open = true;
+        // Keep the native disclosure and its keyboard behavior; animate only height.
+        const endHeight = expanded
+          ? details.getBoundingClientRect().height
+          : summary.getBoundingClientRect().height + 1;
+        animation = details.animate(
+          { height: [`${startHeight}px`, `${endHeight}px`] },
+          { duration: 260, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' },
+        );
+        animation.onfinish = () => {
+          details.open = expanded;
+          animation = undefined;
+        };
+      });
+      motionPreference.addEventListener('change', (event) => {
+        if (event.matches) animation?.finish();
+      });
+    });
+</script>
 <style>
   .faq-list {
     border-top: 1px solid var(--border);
   }
   details {
     border-bottom: 1px solid var(--border);
+    overflow: clip;
   }
   summary {
-    min-height: 2.75rem;
-    padding: 1.4rem 2.5rem 1.4rem 0;
+    position: relative;
+    min-height: 4.5rem;
+    padding: 1.75rem 3rem 1.75rem 0.25rem;
     cursor: pointer;
     font-family: var(--font-serif);
-    font-size: 1.3rem;
-    font-weight: 600;
-    line-height: 1.25;
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: 400;
+    line-height: 1.4;
+    list-style: none;
     transition:
       color 200ms ease-out,
       background-color 200ms ease-out;
   }
   summary:hover {
     color: var(--pine);
+    background-color: rgb(36 68 56 / 4%);
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary::before,
+  summary::after {
+    position: absolute;
+    top: 2.4rem;
+    right: 0.75rem;
+    width: 0.8rem;
+    height: 1px;
+    background: var(--pine);
+    content: '';
+    transition: transform 220ms ease;
+  }
+  summary::after {
+    transform: rotate(90deg);
+  }
+  details[open] summary::after {
+    transform: rotate(0);
+  }
+  summary:focus-visible {
+    outline-offset: -4px;
+    outline-color: var(--pine);
+    background-color: rgb(36 68 56 / 4%);
+    box-shadow: none;
   }
   .answer {
-    padding: 0 2rem 1rem 0;
+    padding: 0 3rem 1.75rem 0.25rem;
     color: var(--ink-soft);
   }
-  details[open] .answer {
-    animation: faq-answer-in 240ms ease-out both;
-  }
-  @keyframes faq-answer-in {
-    from {
-      opacity: 0;
-      transform: translateY(-4px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    details[open] .answer {
-      animation: none;
-    }
+  .answer :last-child {
+    margin-bottom: 0;
   }
 </style>

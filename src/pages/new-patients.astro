@@ -60,3 +60,37 @@ import { practice } from '../data/practice';
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .prose ol {
+    padding: 0;
+    list-style: none;
+    counter-reset: patient-step;
+  }
+  .prose ol li {
+    position: relative;
+    padding: 0 0 1.5rem 3rem;
+    margin: 0 0 1.5rem;
+    border-bottom: 1px solid var(--border);
+    counter-increment: patient-step;
+  }
+  .prose ol li::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: var(--pine);
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    content: counter(patient-step, decimal-leading-zero);
+  }
+  .prose ol strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+  }
+  .prose ol li:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border: 0;
+  }
+</style>

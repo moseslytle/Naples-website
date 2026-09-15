@@ -2,6 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PracticeImage from '../components/PracticeImage.astro';
 import ContactCard from '../components/ContactCard.astro';
+import ActionLink from '../components/ActionLink.astro';
+import ActionArrow from '../components/ActionArrow.astro';
 import { practice, sitePath } from '../data/practice';
 ---
 
@@ -10,117 +12,140 @@ import { practice, sitePath } from '../data/practice';
   description="A welcoming introduction to Naples Modern Choice Medicine, a concierge family medicine practice in Naples, Florida."
 >
   <section class="hero">
-    <div class="container hero__grid">
-      <div>
-        <p class="eyebrow">Concierge family medicine · Naples, Florida</p>
-        <h1>A more personal approach to family medicine.</h1>
-        <p class="lede">
-          Naples Modern Choice Medicine offers concierge family medicine with
-          more time for thoughtful, ongoing care and a closer relationship with
-          your physician.
-        </p>
-        <div class="button-row">
-          <a class="button" href={practice.phone.href}>Call the Practice</a>
-          <a
-            class="button button--secondary"
-            href={sitePath('/concierge-care/')}>Learn About Concierge Care</a
-          >
-        </div>
-        <p class="hero__note">
-          Appointments are arranged by contacting the office. Online booking is
-          not available.
-        </p>
-      </div>
+    <div class="hero__photograph">
       <PracticeImage
         src="/images/practice-hero.webp"
         alt="Naples Modern Choice Medicine office building and entrance"
         eager
+        fullBleed
+        objectPosition="center 55%"
       />
+    </div>
+    <div class="container hero__content">
+      <p class="eyebrow">Concierge family medicine · Naples, Florida</p>
+      <h1>
+        A more personal<br class="desktop-break" /> approach to<br
+          class="desktop-break"
+        /> family medicine.
+      </h1>
+      <p class="hero__description">
+        Naples Modern Choice Medicine offers concierge family medicine with more
+        time for thoughtful, ongoing care and a closer relationship with your
+        physician.
+      </p>
+      <div class="button-row">
+        <a class="button button--ivory" href={practice.phone.href}
+          >Call the Practice <ActionArrow
+            class="button__arrow"
+            direction="outward"
+          /></a
+        >
+        <ActionLink href={sitePath('/concierge-care/')}
+          >Learn About Concierge Care</ActionLink
+        >
+      </div>
+      <div class="hero__signature">
+        <span>Personalized Medicine. Elevated Care.</span>
+        <ActionLink href="#our-approach" direction="down"
+          >Discover the practice</ActionLink
+        >
+      </div>
     </div>
   </section>
 
-  <section class="section intro">
+  <div class="arrival-note">
+    <div class="container">
+      <span>North Naples, Florida</span>
+      <p>
+        Appointments are arranged by contacting the office. Online booking is
+        not available.
+      </p>
+    </div>
+  </div>
+
+  <section class="section philosophy" id="our-approach">
     <div class="narrow">
-      <h2>What concierge family medicine means</h2>
+      <p class="eyebrow">A thoughtful approach to primary care</p>
+      <h2>What concierge<br /> family medicine means</h2>
       <p class="lede">
         Concierge family medicine uses a membership model to support more
         personalized, ongoing primary care. Membership details, access, and
         included services vary by practice.
       </p>
-      <div class="button-row">
-        <a class="button button--secondary" href={sitePath('/concierge-care/')}
-          >How Concierge Care Works</a
-        >
-      </div>
+      <ActionLink href={sitePath('/concierge-care/')}
+        >How Concierge Care Works</ActionLink
+      >
     </div>
   </section>
 
-  <section class="section">
-    <div class="container split">
-      <PracticeImage
-        src="/images/provider-portrait.webp"
-        alt="Dr. Sandy Naples"
-        portrait
-      />
-      <div>
-        <h2>Meet Dr. Sandy Naples.</h2>
-        <h3>{practice.provider.name}</h3>
+  <section class="section physician">
+    <div class="container physician__grid">
+      <figure class="physician__portrait">
+        <PracticeImage
+          src="/images/provider-portrait.webp"
+          alt="Dr. Sandy Naples"
+          portrait
+        />
+        <figcaption>{practice.provider.name}</figcaption>
+      </figure>
+      <div class="physician__copy">
+        <p class="eyebrow">Meet your physician</p>
+        <h2>Meet Dr.<br />Sandy Naples.</h2>
         <p class="provider-detail">
           {practice.provider.title}<br />{practice.provider.experience}
         </p>
-        <p>
+        <p class="physician__mission">
           His mission is to provide comprehensive healthcare that prioritizes
           your wellness while recognizing the demands of your busy lifestyle.
         </p>
-        <div class="button-row">
-          <a class="button button--secondary" href={sitePath('/about/')}
-            >About the Practice</a
-          >
-        </div>
+        <ActionLink href={sitePath('/about/')}>About the Practice</ActionLink>
       </div>
     </div>
   </section>
 
-  <section class="section section--sand">
-    <div class="container">
-      <div class="section-heading">
-        <div>
-          <h2>A clear path for new patients</h2>
-        </div>
+  <section class="section pathway">
+    <div class="container pathway__grid">
+      <div class="pathway__intro">
+        <p class="eyebrow">Getting started</p>
+        <h2>A clear path<br /> for new patients</h2>
         <p>
           There is no online intake or medical-information form on this website.
           Start by contacting the office directly.
         </p>
-      </div>
-      <ol class="steps grid grid--3">
-        <li class="card">
-          <strong>1</strong><h3>Learn about the practice</h3><p>
-            Review the concierge model and frequently asked questions.
-          </p>
-        </li>
-        <li class="card">
-          <strong>2</strong><h3>Contact the office</h3><p>
-            Call or use the practice’s patient communication email for general
-            next-step information.
-          </p>
-        </li>
-        <li class="card">
-          <strong>3</strong><h3>Follow the office’s instructions</h3><p>
-            The office will explain the next steps and provide any necessary
-            instructions.
-          </p>
-        </li>
-      </ol>
-      <div class="button-row">
-        <a class="button" href={sitePath('/new-patients/')}
+        <a class="button button--secondary" href={sitePath('/new-patients/')}
           >New Patient Information</a
         >
       </div>
+      <ol class="steps">
+        <li>
+          <span class="step-number" aria-hidden="true">01</span><div>
+            <h3>Learn about the practice</h3><p>
+              Review the concierge model and frequently asked questions.
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="step-number" aria-hidden="true">02</span><div>
+            <h3>Contact the office</h3><p>
+              Call or use the practice’s patient communication email for general
+              next-step information.
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="step-number" aria-hidden="true">03</span><div>
+            <h3>Follow the office’s instructions</h3><p>
+              The office will explain the next steps and provide any necessary
+              instructions.
+            </p>
+          </div>
+        </li>
+      </ol>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container split contact-split">
+  <section class="section location">
+    <div class="container split">
       <div>
         <p class="eyebrow">Naples office</p>
         <h2>Visit our North Naples office.</h2>
@@ -128,103 +153,346 @@ import { practice, sitePath } from '../data/practice';
         <address>
           {practice.address.street}<br />{practice.address.cityStateZip}
         </address>
-        <a href={practice.mapUrl} target="_blank" rel="noopener noreferrer"
-          >Open directions in Google Maps <span class="sr-only"
-            >(opens in a new tab)</span
-          ></a
+        <ActionLink href={practice.mapUrl} external
+          >Open directions in Google Maps</ActionLink
         >
       </div>
-      <ContactCard />
+      <ContactCard showAddress={false} />
     </div>
   </section>
 </BaseLayout>
 
 <style>
   .hero {
+    --action-link-color: var(--cream);
+    --action-link-hover: var(--white);
+    --action-link-rule: #b5bfad;
+    --action-focus: var(--cream);
     position: relative;
+    isolation: isolate;
     overflow: hidden;
-    padding-block: clamp(3rem, 8vw, 7rem);
-    background: linear-gradient(160deg, var(--cream) 45%, var(--mist) 100%);
+    background: var(--pine-dark);
+    color: var(--cream);
   }
-
+  .hero__photograph {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+  .hero__photograph :global(.practice-image) {
+    height: 100%;
+    width: 100%;
+    aspect-ratio: auto;
+    background: var(--pine-dark);
+  }
+  .hero__photograph :global(.practice-photo) {
+    filter: saturate(0.55);
+  }
   .hero::after {
     position: absolute;
-    top: -18%;
-    right: -8%;
-    width: 26rem;
-    height: 26rem;
-    border-radius: 50%;
-    background: radial-gradient(
-      circle,
-      rgba(135, 170, 163, 0.22),
-      transparent 68%
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+      90deg,
+      rgb(13 31 24 / 95%) 0%,
+      rgb(13 31 24 / 82%) 34%,
+      rgb(13 31 24 / 32%) 62%,
+      rgb(13 31 24 / 8%) 100%
     );
     content: '';
   }
-
-  .hero__grid {
+  .hero__content {
+    padding-top: clamp(4rem, 6vw, 6rem);
+    padding-bottom: 1.75rem;
+  }
+  .hero .eyebrow {
+    color: var(--gold);
+    margin-bottom: 2rem;
+  }
+  .hero h1 {
+    max-width: 13ch;
+    margin-bottom: 1.75rem;
+    font-size: var(--type-hero);
+    line-height: 0.98;
+    font-weight: 400;
+    letter-spacing: -0.035em;
+    text-wrap: initial;
+  }
+  .hero__description {
+    max-width: 28rem;
+    color: #e4e4d8;
+    font-size: 1rem;
+    line-height: 1.9;
+  }
+  .hero .button-row {
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .hero a:focus-visible,
+  .physician a:focus-visible {
+    outline-color: var(--gold);
+    box-shadow: none;
+  }
+  .hero__signature {
     position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(20rem, 0.9fr);
-    align-items: center;
-    gap: clamp(2rem, 7vw, 6rem);
-  }
-  .hero__note {
-    margin-top: 1.1rem;
-    color: var(--ink-soft);
-    font-size: 0.84rem;
-  }
-  .intro {
-    text-align: center;
-  }
-  .intro .lede {
-    margin-inline: auto;
-  }
-  .intro .button-row {
-    justify-content: center;
-  }
-  .section-heading {
     display: flex;
-    align-items: end;
+    align-items: center;
     justify-content: space-between;
     gap: 2rem;
-    margin-bottom: 2.5rem;
+    margin-top: clamp(3.5rem, 6vw, 6rem);
+    padding-top: 1.25rem;
+    border-top: 1px solid transparent;
   }
-  .section-heading > p {
-    max-width: 32rem;
+  .hero__signature::before {
+    position: absolute;
+    top: 0;
+    inset-inline: 0;
+    height: 1px;
+    background: #ffffff45;
+    content: '';
+    transform-origin: left;
+  }
+  .hero__signature > span {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    color: var(--cream);
+  }
+  .hero__signature :global(.text-link) {
+    font-size: 0.75rem;
+  }
+  .arrival-note {
+    border-bottom: 1px solid var(--border);
+  }
+  .arrival-note .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding-block: 1.1rem;
     color: var(--ink-soft);
+    font-size: 0.75rem;
+  }
+  .arrival-note span {
+    color: var(--ink);
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+  .arrival-note p {
+    margin: 0;
+    text-align: right;
+  }
+  .philosophy {
+    text-align: center;
+  }
+  .philosophy .eyebrow {
+    justify-content: center;
+    color: var(--coral);
+  }
+  .philosophy h2 {
+    margin-bottom: 2rem;
+  }
+  .philosophy .lede {
+    max-width: 37rem;
+    margin: 0 auto 2rem;
+    font-size: 1rem;
+  }
+  .physician {
+    --action-link-color: var(--gold);
+    --action-link-hover: var(--white);
+    --action-link-rule: #97a58f;
+    --action-focus: var(--cream);
+    background: var(--pine-dark);
+    color: var(--cream);
+  }
+  .physician__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(3rem, 10vw, 10rem);
+    max-width: 65rem;
+  }
+  .physician__portrait {
+    margin: 0;
+    padding: 0;
+  }
+  .physician__portrait :global(.practice-image) {
+    width: 100%;
+  }
+  .physician__portrait figcaption {
+    padding: 1rem 0 0.25rem;
+    text-align: left;
+    color: #cfcec0;
+    font-size: 0.8125rem;
+    letter-spacing: 0.1em;
+  }
+  .physician .eyebrow {
+    color: var(--gold);
+  }
+  .physician h2 {
+    font-size: clamp(3.5rem, 5.4vw, 5.5rem);
   }
   .provider-detail {
-    color: var(--pine);
-    font-weight: 750;
+    margin-block: 1.75rem;
+    color: #d5d8c9;
+    font-size: 0.875rem;
+    line-height: 1.9;
+  }
+  .physician__mission {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.85;
+    color: #eeeade;
+  }
+  .physician :global(.text-link) {
+    margin-top: 1.5rem;
+  }
+  .pathway {
+    background: var(--sand);
+    padding-block: clamp(4.5rem, 8vw, 7rem);
+  }
+  .pathway__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+    gap: clamp(3rem, 10vw, 10rem);
+  }
+  .pathway__intro > p:not(.eyebrow) {
+    max-width: 24rem;
+    color: var(--ink-soft);
+    font-size: 1rem;
+    margin-bottom: 2rem;
   }
   .steps {
+    margin: 0;
     padding: 0;
     list-style: none;
-    counter-reset: step;
   }
-  .steps strong {
-    display: block;
-    margin-bottom: 0.9rem;
-    color: var(--sea);
+  .steps li {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 1.5rem;
+    padding-block: 1.75rem;
+    border-top: 1px solid #bcb7a6;
+  }
+  .steps li:last-child {
+    border-bottom: 1px solid #bcb7a6;
+  }
+  .step-number {
+    padding-top: 0.3rem;
     font-family: var(--font-serif);
-    font-style: italic;
-    font-size: 2.1rem;
-    font-weight: 480;
-    line-height: 1;
+    font-size: 1.35rem;
+    color: var(--coral);
   }
-  address {
-    margin-bottom: 1rem;
+  .steps h3 {
+    font-size: 1.9rem;
+    margin-bottom: 0.6rem;
+  }
+  .steps p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 0.9375rem;
+  }
+  .location h2 {
+    max-width: 20ch;
+  }
+  .location {
+    padding-block: clamp(4.5rem, 8vw, 7rem);
+  }
+  .location .split {
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+    align-items: start;
+  }
+  .location address {
+    margin-block: 2rem 1.5rem;
     font-style: normal;
-    font-size: 1.1rem;
+    font-size: 0.9375rem;
+  }
+  .location .lede {
+    font-size: 1rem;
+    max-width: 23rem;
   }
   @media (max-width: 760px) {
-    .hero__grid {
-      grid-template-columns: 1fr;
+    .hero__content {
+      padding-top: 4rem;
     }
-    .section-heading {
+    .hero::after {
+      background: linear-gradient(
+        90deg,
+        rgb(13 31 24 / 94%),
+        rgb(13 31 24 / 72%)
+      );
+    }
+    .hero__photograph :global(.practice-photo) {
+      object-position: 64% center !important;
+    }
+    .hero h1 {
+      max-width: 100%;
+      font-size: clamp(2.55rem, 12vw, 4.5rem);
+      line-height: 1.03;
+    }
+    .desktop-break {
+      display: initial;
+    }
+    .hero .button-row {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .hero .button {
+      width: auto;
+    }
+    .hero__description {
+      font-size: 1rem;
+    }
+    .hero__signature {
+      margin-top: 3rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .hero__signature > span {
+      font-size: 0.75rem;
+    }
+    .arrival-note .container {
       display: block;
+    }
+    .arrival-note span {
+      display: none;
+    }
+    .arrival-note p {
+      text-align: left;
+      font-size: 0.75rem;
+    }
+    .physician__grid,
+    .pathway__grid,
+    .location .split {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    .physician__portrait {
+      max-width: 24rem;
+      width: 100%;
+      margin-inline: auto;
+    }
+    .steps li {
+      grid-template-columns: 1.5rem 1fr;
+      gap: 1rem;
+    }
+    .steps h3 {
+      font-size: 1.75rem;
+    }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero__signature::before {
+      animation: rule-draw 700ms var(--ease) 180ms both;
+    }
+  }
+  @keyframes rule-draw {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
     }
   }
 </style>

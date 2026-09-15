@@ -1,5 +1,5 @@
 ---
-import LogoMark from './LogoMark.astro';
+import Wordmark from './Wordmark.astro';
 import { navigation, practice, sitePath } from '../data/practice';
 ---
 
@@ -16,7 +16,7 @@ import { navigation, practice, sitePath } from '../data/practice';
   <div class="container footer-grid">
     <div class="footer-brand">
       <div class="brand-line">
-        <LogoMark variant="light" /><strong>{practice.name}</strong>
+        <Wordmark light />
       </div>
       <p>Personalized Medicine. Elevated Care.</p>
     </div>
@@ -30,6 +30,16 @@ import { navigation, practice, sitePath } from '../data/practice';
             </li>
           ))
         }
+        <li>
+          <a
+            href={practice.paymentUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            >Pay Now<span class="sr-only">
+              (PayerExpress, opens in a new tab)</span
+            ></a
+          >
+        </li>
         <li>
           <a href={sitePath('/privacy-disclaimer/')}>Privacy &amp; Disclaimer</a
           >
@@ -58,9 +68,11 @@ import { navigation, practice, sitePath } from '../data/practice';
 
 <style>
   .safety {
-    padding-block: 1rem;
-    background: #f7ded5;
-    color: #573127;
+    padding-block: 1.25rem;
+    border-top: 1px solid var(--border);
+    background: var(--cream);
+    color: var(--ink-soft);
+    font-size: 0.8125rem;
   }
 
   .safety__inner {
@@ -72,52 +84,66 @@ import { navigation, practice, sitePath } from '../data/practice';
   }
 
   .site-footer {
-    padding-top: 4rem;
+    padding-top: clamp(4rem, 7vw, 7rem);
     background: var(--pine-dark);
     color: #e9f2ef;
   }
 
   .footer-grid {
     display: grid;
-    grid-template-columns: 1.5fr 0.65fr 1fr;
-    gap: 3rem;
-    padding-bottom: 3rem;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: clamp(2rem, 5vw, 5rem);
+    padding-bottom: 4rem;
   }
 
   .footer-brand p {
     max-width: 30rem;
+    color: #c6d4c9;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
   }
 
   .brand-line {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
     font-family: var(--font-serif);
-    font-size: 1.35rem;
+    font-size: 1.5rem;
+    line-height: 1.3;
   }
 
   h2 {
-    color: var(--white);
+    color: var(--gold);
     font-family: var(--font-sans);
-    font-size: 0.8rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
+    margin-bottom: 1.25rem;
+    font-size: var(--type-label);
+    font-weight: 500;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
   }
 
   ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 1rem;
     margin: 0;
     padding: 0;
     list-style: none;
   }
 
   li + li {
-    margin-top: 0.35rem;
+    margin-top: 0;
   }
 
   a {
     color: #e9f2ef;
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    max-width: 100%;
+    font-size: var(--type-small);
+    text-decoration-color: transparent;
     overflow-wrap: anywhere;
     transition:
       color 180ms ease-out,
@@ -126,16 +152,19 @@ import { navigation, practice, sitePath } from '../data/practice';
 
   a:hover {
     color: var(--white);
+    text-decoration-color: currentColor;
   }
 
   a:focus-visible {
     outline-color: var(--white);
     box-shadow: 0 0 0 2px var(--pine-dark);
+    text-decoration-color: currentColor;
   }
 
   address {
     margin-bottom: 1rem;
     font-style: normal;
+    font-size: 0.9375rem;
   }
 
   .legal-row {
@@ -145,13 +174,23 @@ import { navigation, practice, sitePath } from '../data/practice';
     padding-block: 1.25rem;
     border-top: 1px solid rgba(255, 255, 255, 0.18);
     color: #bbd0cb;
-    font-size: 0.76rem;
+    font-size: 0.75rem;
   }
 
   @media (max-width: 760px) {
     .footer-grid {
       grid-template-columns: 1fr;
-      gap: 2rem;
+      gap: 2.5rem 1.5rem;
+    }
+    .footer-brand {
+      grid-column: 1 / -1;
+    }
+    .brand-line {
+      max-width: 24rem;
+    }
+    .safety__inner strong {
+      display: block;
+      margin-bottom: 0.25rem;
     }
 
     .legal-row,
@@ -162,6 +201,19 @@ import { navigation, practice, sitePath } from '../data/practice';
     .legal-row span {
       display: block;
       margin-bottom: 0.5rem;
+    }
+  }
+  @media (max-width: 420px) {
+    ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 1rem;
+    }
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+    .footer-brand {
+      grid-column: auto;
     }
   }
 </style>

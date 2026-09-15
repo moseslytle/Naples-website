@@ -18,6 +18,7 @@ export const practice = {
     href: 'tel:+12394994765',
   },
   fax: '(239) 317-1831',
+  paymentUrl: 'https://www.payerexpress.com/ebp/NaplesMCM',
   email: {
     display: 'naplesmcm@gmail.com',
     href: 'mailto:naplesmcm@gmail.com',

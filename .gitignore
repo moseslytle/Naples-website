@@ -9,3 +9,7 @@ images/*.pdf
 .env
 .env.*
 !.env.example
+
+# Local design tooling and generated review artifacts.
+.agents/
+.impeccable/

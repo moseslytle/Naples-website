@@ -3,7 +3,8 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 import { practice, sitePath } from '../data/practice';
-import revealScript from '../scripts/reveal.ts?raw';
+import serifFont from '../assets/fonts/cormorant-regular.woff2?url';
+import sansFont from '../assets/fonts/manrope-latin.woff2?url';
 
 interface Props {
   title: string;
@@ -23,17 +24,21 @@ const fullTitle =
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#17443f" />
+    <meta name="theme-color" content="#172e25" />
     <link rel="canonical" href={canonicalURL} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
+      rel="preload"
+      href={serifFont}
+      as="font"
+      type="font/woff2"
       crossorigin="anonymous"
     />
     <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="preload"
+      href={sansFont}
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
     />
     <link rel="icon" href={sitePath('/favicon.svg')} type="image/svg+xml" />
     <meta property="og:type" content="website" />
@@ -50,6 +55,5 @@ const fullTitle =
       <slot />
     </main>
     <Footer />
-    <script is:inline set:html={revealScript} />
   </body>
 </html>

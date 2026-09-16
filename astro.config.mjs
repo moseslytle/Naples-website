@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://moseslytle.github.io',
-  base: '/Naples-website',
+  site: 'https://naplesmodernchoicemedicine.com',
+  output: 'static',
   trailingSlash: 'always',
 });

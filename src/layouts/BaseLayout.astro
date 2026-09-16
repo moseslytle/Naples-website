@@ -2,9 +2,10 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
-import { practice, sitePath } from '../data/practice';
+import { practice } from '../data/practice';
 import serifFont from '../assets/fonts/cormorant-regular.woff2?url';
 import sansFont from '../assets/fonts/manrope-latin.woff2?url';
+import favicon from '../assets/images/logo-black.webp';
 
 interface Props {
   title: string;
@@ -40,7 +41,7 @@ const fullTitle =
       type="font/woff2"
       crossorigin="anonymous"
     />
-    <link rel="icon" href={sitePath('/favicon.svg')} type="image/svg+xml" />
+    <link rel="icon" href={favicon.src} type="image/webp" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={practice.name} />
     <meta property="og:title" content={fullTitle} />

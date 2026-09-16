@@ -31,7 +31,8 @@ professional review.
 
 ## Privacy, legal, and hosting
 
-- [ ] Obtain client and qualified legal review of the Privacy and Website Disclaimer page.
+- [x] Replace the draft Privacy and Website Disclaimer with general publication copy.
+- [ ] Obtain qualified legal review and determine whether an applicable HIPAA Notice of Privacy Practices must also be posted.
 - [ ] Select the hosting provider and document accurate server-log and data-retention practices.
 - [ ] Confirm the policy effective date and revision process.
 - [ ] Confirm any required Florida, federal, accessibility, or practice-specific notices with qualified counsel.

@@ -78,7 +78,9 @@ Do not launch until the client has reviewed and supplied:
 - Scheduling, access, response-time, and after-hours policies
 - New-patient process and approved patient communication guidance
 - Office hours, parking, accessibility, and arrival information
-- Final legal/privacy copy and hosting-provider details
+- Final qualified legal review and any applicable HIPAA Notice of Privacy Practices
 - Social sharing image and approved practice photography
 
-The website does not claim legal or regulatory compliance. Privacy and medical disclaimer copy is a draft requiring client and qualified legal review.
+The website includes a general public-website privacy and disclaimer page. It is
+not a substitute for the practice's Notice of Privacy Practices or qualified
+legal advice.

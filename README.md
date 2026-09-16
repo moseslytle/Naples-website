@@ -2,6 +2,10 @@
 
 Phase 1 informational website for Naples Modern Choice Medicine, a concierge family medicine practice in Naples, Florida.
 
+The current GitHub Pages deployment is a client demo. The approved production
+site will be hosted through GoDaddy, so production domain and deployment settings
+must be applied during launch migration.
+
 ## Tech stack
 
 - Astro static site generation

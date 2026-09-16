@@ -33,7 +33,8 @@ professional review.
 
 - [x] Replace the draft Privacy and Website Disclaimer with general publication copy.
 - [ ] Obtain qualified legal review and determine whether an applicable HIPAA Notice of Privacy Practices must also be posted.
-- [ ] Select the hosting provider and document accurate server-log and data-retention practices.
+- [x] GoDaddy has been selected as the production hosting provider; GitHub Pages is the client demo only.
+- [ ] Confirm GoDaddy's applicable server-log and data-retention practices before launch.
 - [ ] Confirm the policy effective date and revision process.
 - [ ] Confirm any required Florida, federal, accessibility, or practice-specific notices with qualified counsel.
 - [x] Existing public email and PayerExpress links may remain.
@@ -45,6 +46,6 @@ professional review.
 - [ ] Confirm the provider credentials and professional-background details displayed on the About page.
 - [ ] Review every page for medical accuracy and unintended promises about access or outcomes.
 - [x] Replace all photography placeholders.
-- [ ] Align the final public URL, canonical URL, and sitemap. The build currently targets GitHub Pages while the sitemap names `naplesmodernchoicemedicine.com`.
+- [ ] Configure the final GoDaddy deployment and align its public URL, canonical URL, and sitemap. The current GitHub Pages configuration is for the client demo only.
 - [ ] Complete keyboard and assistive-technology testing with final content and imagery.
 - [ ] Obtain explicit approval before deployment or publication.
